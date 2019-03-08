@@ -1,9 +1,9 @@
-import { 
-    red500, blue500, green500, orange500,
-    purple500, indigo500, lime500, yellow500,
-    pink500, cyan500, teal500, deepOrange500,
-    deepPurple500, lightBlue500, lightGreen500, amber500,
-} from "material-ui/styles/colors";
+import {
+    red, blue, green, orange,
+    purple, indigo, lime, yellow,
+    pink, cyan, teal, deepOrange,
+    deepPurple, lightBlue, lightGreen, amber,
+} from '@material-ui/core/colors';
 
 export const API_ROOT = "https://u8sie6ns6c.execute-api.us-east-1.amazonaws.com/deployment";
 
@@ -37,10 +37,10 @@ export const FILTER_SORT_ORDER_OPTIONS = [
 ];
 
 export const CHART_SERIES_COLORS = [
-    red500, blue500, green500, orange500,
-    purple500, indigo500, lime500, yellow500,
-    pink500, cyan500, teal500, deepOrange500,
-    deepPurple500, lightBlue500, lightGreen500, amber500,
+    red[500], blue[500], green[500], orange[500],
+    purple[500], indigo[500], lime[500], yellow[500],
+    pink[500], cyan[500], teal[500], deepOrange[500],
+    deepPurple[500], lightBlue[500], lightGreen[500], amber[500],
 ];
 
 export const CHART_OPTIONS = {
