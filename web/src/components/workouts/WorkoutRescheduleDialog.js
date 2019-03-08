@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Spinner from '../shared/Spinner';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
@@ -77,7 +77,7 @@ class WorkoutRescheduleDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <Dialog

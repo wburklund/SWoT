@@ -7,7 +7,7 @@ import { List } from 'material-ui/List';
 
 import { CARD_WIDTH, EXERCISE_TYPES, EXERCISE_AVATAR_COLOR } from '../../../constants';
 import { getElapsedTime, getUnixTimestamp } from '../../../util';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 const styles = {
     cardHeader: {
@@ -72,7 +72,7 @@ class ExerciseEditorCard extends Component {
             <div>
                 <Card 
                     zDepth={2} 
-                    style={!this.props.disabled ? styles.card : { ...styles.card, backgroundColor: grey300 }}
+                    style={!this.props.disabled ? styles.card : { ...styles.card, backgroundColor: grey[300] }}
                 >
                     <CardHeader                        
                         titleStyle={styles.cardTitle}

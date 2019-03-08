@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { black } from 'material-ui/styles/colors';
+import { black } from '@material-ui/core/colors';
 import FlatButton from 'material-ui/FlatButton';
 import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';

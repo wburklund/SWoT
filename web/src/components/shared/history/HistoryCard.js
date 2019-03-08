@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
-import { black, grey300 } from 'material-ui/styles/colors';
+import { black, grey } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
 
 import Spinner from '../Spinner';
@@ -37,7 +37,7 @@ class HistoryCard extends Component {
             this.props.isEmpty && this.props.hideIfEmpty ? '' :
                 <Card 
                     zDepth={2}                 
-                    style={!this.props.refreshing ? styles.card : { ...styles.card, backgroundColor: grey300 } }
+                    style={!this.props.refreshing ? styles.card : { ...styles.card, backgroundColor: grey[300] } }
                 >
                     <CardHeader
                         title={this.props.title}

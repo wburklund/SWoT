@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import { sortByProp } from '../../../util';
 
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 class ExercisesHistoryContent extends Component {
@@ -21,7 +21,7 @@ class ExercisesHistoryContent extends Component {
                 <TableHeader
                     adjustForCheckbox={false}
                     displaySelectAll={false}
-                    style={this.props.refreshing ? { backgroundColor: grey300 } : {}}
+                    style={this.props.refreshing ? { backgroundColor: grey[300] } : {}}
                 >
                     <TableRow>
                         <TableHeaderColumn>Date</TableHeaderColumn>
@@ -39,7 +39,7 @@ class ExercisesHistoryContent extends Component {
                     {!exercises ? '' : exercises
                         .sort(sortByProp('endTime', this.props.filters.order))
                         .map((e, index) => 
-                            <TableRow style={this.props.refreshing ? { backgroundColor: grey300 } : {}} key={index}>
+                            <TableRow style={this.props.refreshing ? { backgroundColor: grey[300] } : {}} key={index}>
                                 <TableRowColumn>{moment(e.endTime).format('ddd M/DD [at] h:mmp')}</TableRowColumn>
                                 <TableRowColumn>{e.name}</TableRowColumn>
                                 {this.props.metrics.map((m, index) => 

@@ -11,7 +11,7 @@ import { CARD_WIDTH } from '../../constants';
 import ContentCreate from 'material-ui/svg-icons/content/create';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RoutineExerciseListItem from './RoutineExerciseListItem';
-import { red500 } from 'material-ui/styles/colors';
+import { red } from '@material-ui/core/colors';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -127,7 +127,7 @@ class RoutineCard extends Component {
 
     render() {
         let color = this.props.routine.color;
-        color = !color || color === 0 ? red500 : color;
+        color = !color || color === 0 ? red[500] : color;
 
         let fontColor = fontContrastColor(color);
 

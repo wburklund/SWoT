@@ -6,7 +6,7 @@ import api from '../../../api';
 import Spinner from '../../shared/Spinner';
 
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import { black, red500, grey300 } from 'material-ui/styles/colors';
+import { black, red, grey } from '@material-ui/core/colors';
 import { 
     API_ROOT,
     WORKOUT_AVATAR_COLOR, 
@@ -206,7 +206,7 @@ class ExerciseProgress extends Component {
 
         return (
             this.state.loadApi.isExecuting ? <Spinner size={48}/> : 
-                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     !this.state.historyExists ? <HelpChecklist/> :
                         <div>
                             <Card 
@@ -214,7 +214,7 @@ class ExerciseProgress extends Component {
                                 style={!this.state.refreshApi.isExecuting ? styles.card : 
                                     { 
                                         ...styles.card, 
-                                        backgroundColor: grey300, 
+                                        backgroundColor: grey[300], 
                                     }
                                 }
                             >

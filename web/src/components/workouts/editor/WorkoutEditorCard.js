@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ContentSave, NavigationCancel, NavigationArrowBack } from 'material-ui/svg-icons';
-import { red500, grey300 } from 'material-ui/styles/colors';
+import { red, grey } from '@material-ui/core/colors';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -189,7 +189,7 @@ class WorkoutEditorCard extends Component {
 
     render() {
         let color = this.props.workout.routine.color;
-        color = !color || color === 0 ? red500 : color;
+        color = !color || color === 0 ? red[500] : color;
         let fontColor = fontContrastColor(color);
 
         let workout = this.state.workout;
@@ -202,7 +202,7 @@ class WorkoutEditorCard extends Component {
 
         return (
             <div>
-                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey300 }}>
+                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
                     <CardHeader                        
                         titleStyle={{ ...styles.cardTitle, color: fontColor }}
                         style={{ ...styles.cardHeader, backgroundColor: color }}

@@ -6,7 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RoutineExerciseList from './RoutineExerciseList';
 import SaveRetryFlatButton from '../shared/SaveRetryFlatButton';
 import TextField from 'material-ui/TextField';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 import Spinner from '../shared/Spinner';
 
@@ -190,7 +190,7 @@ class RoutineDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <div>

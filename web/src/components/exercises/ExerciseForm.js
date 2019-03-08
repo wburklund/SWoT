@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 
 import ActionHistory from 'material-ui/svg-icons/action/history';
 import Avatar from 'material-ui/Avatar';
-import { black } from 'material-ui/styles/colors';
+import { black, grey } from '@material-ui/core/colors';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
-import { grey300 } from 'material-ui/styles/colors';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
@@ -201,7 +200,7 @@ class ExerciseForm extends Component {
                     style={!this.state.api.isExecuting ? styles.card : 
                         { 
                             ...styles.card, 
-                            backgroundColor: grey300, 
+                            backgroundColor: grey[300], 
                         }
                     }
                 >

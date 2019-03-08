@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {List, ListItem} from 'material-ui/List';
 
-import { red500 } from 'material-ui/styles/colors';
+import { red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import Spinner from '../shared/Spinner';
 
@@ -54,7 +54,7 @@ class ExerciseRoutineReferenceList extends Component {
         return (
             <div style={styles.container}>
                 {this.state.api.isExecuting ? <Spinner style={styles.spinner}/> : 
-                    this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                    this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                         <div>
                             {routines.length > 0 ? 
                                 <div>

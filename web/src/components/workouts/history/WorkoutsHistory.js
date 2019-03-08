@@ -13,7 +13,7 @@ import { setTitle, showSnackbar } from '../../app/AppActions';
 import Spinner from '../../shared/Spinner';
 import History from '../../shared/history/History';
 
-import { black, red500 } from 'material-ui/styles/colors';
+import { black, red } from '@material-ui/core/colors';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import ActionInfo from 'material-ui/svg-icons/action/info';
@@ -60,7 +60,7 @@ const styles = {
     clearIcon: {
         width: 18,
         height: 18,
-        color: red500,
+        color: red[500],
         cursor: 'pointer',
         marginBottom: 15,
         marginRight: 10,
@@ -148,7 +148,7 @@ class WorkoutsHistory extends Component {
     render() {
         return (
             this.state.loadApi.isExecuting ? <Spinner size={48}/> : 
-                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     !this.state.historyExists ? <HelpChecklist/> :
                         <div style={styles.grid}>
                             <History
@@ -188,7 +188,7 @@ class WorkoutsHistory extends Component {
                                     {this.props.workoutsHistory.workouts
                                     .sort(sortByProp('endTime', this.state.filters.order))
                                     .map((w, index) => {
-                                        let color = !w.routine.color || w.routine.color === 0 ? red500 : w.routine.color;
+                                        let color = !w.routine.color || w.routine.color === 0 ? red[500] : w.routine.color;
                                         return (
                                             <ListItem
                                                 key={index}

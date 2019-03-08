@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import api from '../../../api';
 
-import { black, red500 } from 'material-ui/styles/colors';
+import { black, red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 
 import { sortByProp } from '../../../util';
@@ -64,7 +64,7 @@ const styles = {
     clearIcon: {
         width: 18,
         height: 18,
-        color: red500,
+        color: red[500],
         cursor: 'pointer',
         marginBottom: 15,
         marginRight: 10,
@@ -162,7 +162,7 @@ class ExercisesHistory extends Component {
 
         return (
             this.state.loadApi.isExecuting ? <Spinner size={48}/> : 
-                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     !this.state.historyExists ? <HelpChecklist/> :
                         <div style={styles.grid}>
                             <History

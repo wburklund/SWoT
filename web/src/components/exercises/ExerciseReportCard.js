@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Avatar from 'material-ui/Avatar';
 import { ActionAssessment, ActionWatchLater, ActionSpeakerNotes } from 'material-ui/svg-icons';
-import { black } from 'material-ui/styles/colors';
+import { black } from '@material-ui/core/colors';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import LeftRightListItem from '../shared/LeftRightListItem';
 import ToggledLeftRightListItem from '../shared/ToggledLeftRightListItem';

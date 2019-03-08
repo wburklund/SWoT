@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import { Card, CardMedia } from 'material-ui/Card';
 import ActionDone from 'material-ui/svg-icons/action/done';
-import { grey300, green500 } from 'material-ui/styles/colors';
+import { grey, green } from '@material-ui/core/colors';
 import Spinner from '../shared/Spinner';
 
 const styles = {
@@ -46,7 +46,7 @@ const styles = {
         bottom: 0,
         margin: 'auto',
         position: 'absolute',
-        color: green500,
+        color: green[500],
         zIndex: 1000,
     },
     doneIcon:{
@@ -66,7 +66,7 @@ class SecurityCard extends Component {
             <form onSubmit={(event) => event.preventDefault()}>
                 <Card 
                     zDepth={4} 
-                    style={this.props.api.isExecuting || this.props.api.isSuccess ? { ...styles.card, backgroundColor: grey300 } : styles.card }
+                    style={this.props.api.isExecuting || this.props.api.isSuccess ? { ...styles.card, backgroundColor: grey[300] } : styles.card }
                 >
                     <CardMedia style={styles.media}>
                         <div style={styles.iconGroup}>

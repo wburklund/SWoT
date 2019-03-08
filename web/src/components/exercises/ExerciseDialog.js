@@ -8,7 +8,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { addExercise, updateExercise } from './ExercisesActions';
 import { showSnackbar } from '../app/AppActions.js';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 import Spinner from '../shared/Spinner';
 
@@ -245,7 +245,7 @@ class ExerciseDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <div>

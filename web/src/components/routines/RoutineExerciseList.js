@@ -4,7 +4,7 @@ import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
-import {grey400} from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Divider from 'material-ui/Divider';
@@ -42,7 +42,7 @@ class RoutineExerciseList extends Component {
                             rightIconButton={
                                 <IconMenu iconButtonElement={
                                     <IconButton touch={true} tooltipPosition="bottom-left">
-                                        <MoreVertIcon color={grey400} />
+                                        <MoreVertIcon color={grey[400]} />
                                     </IconButton>
                                 }>
                                     <MenuItem onClick={() => this.props.onMoveUpClick(index)}>Move Up</MenuItem>

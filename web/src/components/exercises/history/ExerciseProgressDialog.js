@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 import { fetchExercisesHistory, clearExercisesHistory } from './ExercisesHistoryActions';
 import Spinner from '../../shared/Spinner';
@@ -105,7 +105,7 @@ class ExerciseProgressDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         let history = this.props.exercisesHistory;
         let exercises = history && history.exercises ? history.exercises : [];

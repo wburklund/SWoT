@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import { red500 } from 'material-ui/styles/colors';
+import { red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 
 import { fetchWorkouts, updateWorkout, deleteWorkout } from './WorkoutsActions';
@@ -240,7 +240,7 @@ class Workout extends Component {
 
         return (
             this.state.api.isExecuting ? <Spinner size={48}/> : 
-                this.state.api.isErrored || workout === undefined ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.api.isErrored || workout === undefined ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     workout.endTime === undefined ?
                         <WorkoutCard
                             workout={workout}

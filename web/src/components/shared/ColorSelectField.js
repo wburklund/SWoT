@@ -4,50 +4,36 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 import {
-    red500,
-    pink500,
-    purple500,
-    deepPurple500,
-    indigo500,
-    blue500,
-    lightBlue500,
-    cyan500,
-    teal500,
-    green500,
-    lightGreen500,
-    lime500,
-    yellow500,
-    amber500,
-    orange500,
-    deepOrange500,
-    brown500,
-    blueGrey500,
-    grey500,
-} from 'material-ui/styles/colors';
+    red, pink, purple, deepPurple,
+    indigo, blue, lightBlue, cyan,
+    teal, green, lightGreen, lime,
+    yellow, amber, orange, deepOrange,
+    brown, blueGrey, grey
+} from '@material-ui/core/colors';
 import Palette from 'material-ui/svg-icons/image/palette';
 
 class ColorSelectField extends Component {
     render() {
         let colors = [ 
-            { name: 'Red', color: red500 }, 
-            { name: 'Pink', color: pink500 }, 
-            { name: 'Purple', color: purple500 }, 
-            { name: 'Deep Purple', color: deepPurple500 }, 
-            { name: 'Indigo', color: indigo500 }, 
-            { name: 'Blue', color: blue500 }, 
-            { name: 'Light Blue', color: lightBlue500 }, 
-            { name: 'Cyan', color: cyan500 }, 
-            { name: 'Teal', color: teal500 }, 
-            { name: 'Green', color: green500 }, 
-            { name: 'Light Green', color: lightGreen500 }, 
-            { name: 'Lime', color: lime500 },
-            { name: 'Yellow', color: yellow500 }, 
-            { name: 'Amber', color: amber500 }, 
-            { name: 'Orange', color: orange500 }, 
-            { name: 'Deep Orange', color: deepOrange500 },
-            { name: 'Brown', color: brown500 },
-            { name: 'Blue Grey', color: blueGrey500 },
-            { name: 'Grey', color: grey500 },
+            { name: 'Red', color: red[500] }, 
+            { name: 'Pink', color: pink[500] }, 
+            { name: 'Purple', color: purple[500] }, 
+            { name: 'Deep Purple', color: deepPurple[500] }, 
+            { name: 'Indigo', color: indigo[500] }, 
+            { name: 'Blue', color: blue[500] }, 
+            { name: 'Light Blue', color: lightBlue[500] }, 
+            { name: 'Cyan', color: cyan[500] }, 
+            { name: 'Teal', color: teal[500] }, 
+            { name: 'Green', color: green[500] }, 
+            { name: 'Light Green', color: lightGreen[500] }, 
+            { name: 'Lime', color: lime[500] },
+            { name: 'Yellow', color: yellow[500] }, 
+            { name: 'Amber', color: amber[500] }, 
+            { name: 'Orange', color: orange[500] }, 
+            { name: 'Deep Orange', color: deepOrange[500] },
+            { name: 'Brown', color: brown[500] },
+            { name: 'Blue Grey', color: blueGrey[500] },
+            { name: 'Grey', color: grey[500] },
         ];
 
         return (

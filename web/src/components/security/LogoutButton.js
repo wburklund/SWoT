@@ -6,7 +6,7 @@ import { showSnackbar } from '../app/AppActions';
 
 import IconButton from 'material-ui/IconButton';
 import ActionExitToApp from 'material-ui/svg-icons/action/exit-to-app';
-import { white } from 'material-ui/styles/colors';
+import { white } from '@material-ui/core/colors';
 import ConfirmDialog from '../shared/ConfirmDialog';
 
 const styles = {

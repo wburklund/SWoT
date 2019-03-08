@@ -7,7 +7,7 @@ import { setTitle, showSnackbar } from '../app/AppActions';
 import Spinner from '../shared/Spinner';
 import ExerciseCard from './ExerciseCard';
 
-import { red500 } from 'material-ui/styles/colors';
+import { red } from '@material-ui/core/colors'; 
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import AddFloatingActionButton from '../shared/AddFloatingActionButton';
 import ExerciseDialog from './ExerciseDialog';
@@ -70,7 +70,7 @@ class Exercises extends Component {
     render() {
         return (
             this.state.api.isExecuting ? <Spinner size={48}/> : 
-                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     <div>
                         <div style={styles.grid}>
                             {this.props.exercises.map(e =>  

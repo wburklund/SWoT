@@ -5,7 +5,7 @@ import { fetchRoutines, deleteRoutine } from './RoutinesActions';
 import { fetchExercises } from '../exercises/ExercisesActions';
 import { setTitle, showSnackbar } from '../app/AppActions';
 
-import { red500 } from 'material-ui/styles/colors';
+import { red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 
 import RoutineCard from './RoutineCard';
@@ -72,7 +72,7 @@ class Routines extends Component {
     render() {
         return (
             this.state.api.isExecuting ? <Spinner size={48}/> : 
-                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     !this.props.routines.length && !this.props.exercises.length ? <HelpChecklist/> :
                         <div>
                             <div style={styles.grid}>

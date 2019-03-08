@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { NavigationExpandLess, NavigationExpandMore } from 'material-ui/svg-icons';
-import { black } from 'material-ui/styles/colors';
+import { black } from '@material-ui/core/colors';
 import LeftRightListItem from './LeftRightListItem';
 
 const styles = {

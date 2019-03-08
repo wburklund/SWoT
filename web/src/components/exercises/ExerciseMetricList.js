@@ -4,7 +4,7 @@ import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
-import {grey400, black} from 'material-ui/styles/colors';
+import {grey, black} from '@material-ui/core/colors';
 import MenuItem from 'material-ui/MenuItem';
 import ActionAssessment from 'material-ui/svg-icons/action/assessment';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -26,7 +26,7 @@ class ExerciseMetricList extends Component {
                             rightIconButton={
                                 <IconMenu iconButtonElement={
                                     <IconButton touch={true} tooltipPosition="bottom-left">
-                                        <MoreVertIcon color={grey400} />
+                                        <MoreVertIcon color={grey[400]} />
                                     </IconButton>
                                 }>
                                     <MenuItem leftIcon={<ArrowUpward/>} onClick={() => this.props.onMoveUpClick(index)}>Move Up</MenuItem>

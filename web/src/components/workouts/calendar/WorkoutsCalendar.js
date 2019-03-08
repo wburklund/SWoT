@@ -9,7 +9,7 @@ import { setTitle, showSnackbar } from '../../app/AppActions';
 import Spinner from '../../shared/Spinner';
 
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import { black, red500, grey300 } from 'material-ui/styles/colors';
+import { black, red, grey } from '@material-ui/core/colors';
 import { WORKOUT_AVATAR_COLOR } from '../../../constants';
 import Avatar from 'material-ui/Avatar';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
@@ -72,7 +72,7 @@ const styles = {
     clearIcon: {
         width: 18,
         height: 18,
-        color: red500,
+        color: red[500],
         cursor: 'pointer',
         marginBottom: 15,
         marginRight: 10,
@@ -196,7 +196,7 @@ class WorkoutsCalendar extends Component {
         workouts = workouts.concat(workoutsHistory);
         
         workouts = workouts.map(w => { 
-            let color = !w.routine.color || w.routine.color === 0 ? red500 : w.routine.color;
+            let color = !w.routine.color || w.routine.color === 0 ? red[500] : w.routine.color;
             return { 
                 id: w.id, 
                 title: w.routine.name, 
@@ -212,14 +212,14 @@ class WorkoutsCalendar extends Component {
 
         return (
             this.state.loadApi.isExecuting ? <Spinner size={48}/> : 
-                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     <div>
                         <Card 
                             zDepth={2}                 
                             style={!this.state.refreshApi.isExecuting ? styles.card : 
                                 { 
                                     ...styles.card, 
-                                    backgroundColor: grey300, 
+                                    backgroundColor: grey[300], 
                                 }
                             }
                         >

@@ -6,7 +6,7 @@ import { fetchWorkoutsHistory } from './history/WorkoutsHistoryActions';
 import { setTitle, showSnackbar } from '../app/AppActions';
 import { fetchRoutines } from '../routines/RoutinesActions';
 
-import { black, red500 } from 'material-ui/styles/colors';
+import { black, red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -65,7 +65,7 @@ class Workouts extends Component {
     render() {
         return (
             this.state.api.isExecuting ? <Spinner size={48}/> : 
-                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red500 }} /> :
+                this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     !this.props.workouts.length && !this.props.workoutsHistory.workouts.length && !this.props.routines.length ? <HelpChecklist/> :
                         <div style={styles.grid}>
                             <WorkoutsListCard 

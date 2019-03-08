@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 import ExerciseHistoryDialogContent from './ExerciseHistoryDialogContent';
 import { fetchExercisesHistory, clearExercisesHistory } from './ExercisesHistoryActions';
@@ -70,7 +70,7 @@ class ExerciseHistoryDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <div>

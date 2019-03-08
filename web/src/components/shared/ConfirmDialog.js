@@ -4,7 +4,7 @@ import Spinner from '../shared/Spinner';
 
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import { grey300 } from 'material-ui/styles/colors';
+import { grey } from '@material-ui/core/colors';
 
 const initialState = {
     api: {
@@ -38,7 +38,7 @@ class ConfirmDialog extends Component {
     }
 
     render() {
-        let style = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let style = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <div>

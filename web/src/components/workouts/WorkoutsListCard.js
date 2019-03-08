@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
-import { black, grey300, red500 } from 'material-ui/styles/colors';
+import { black, grey, red } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
 
 import { WORKOUT_AVATAR_COLOR } from '../../constants';
@@ -55,7 +55,7 @@ class WorkoutsListCard extends Component {
                     style={!this.props.refreshing ? styles.card : 
                         { 
                             ...styles.card, 
-                            backgroundColor: grey300, 
+                            backgroundColor: grey[300], 
                         }
                     }
                 >
@@ -72,7 +72,7 @@ class WorkoutsListCard extends Component {
                             {this.props.workouts && this.props.workouts.length > 0 ? this.props.workouts
                                 .sort(this.sort)
                                 .map((w, index) => {
-                                    let color = !w.routine.color || w.routine.color === 0 ? red500 : w.routine.color;
+                                    let color = !w.routine.color || w.routine.color === 0 ? red[500] : w.routine.color;
                                     return (
                                         <ListItem
                                             key={index}

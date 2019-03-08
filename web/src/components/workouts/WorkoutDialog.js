@@ -5,7 +5,7 @@ import moment from 'moment';
 import { fetchRoutines } from '../routines/RoutinesActions';
 import { addWorkout } from '../workouts/WorkoutsActions';
 import Spinner from '../shared/Spinner';
-import { grey300, red500 } from 'material-ui/styles/colors';
+import { grey, red } from '@material-ui/core/colors';
 
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
@@ -139,7 +139,7 @@ class WorkoutDialog extends Component {
     }
 
     render() {
-        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey300 } : {};
+        let refreshStyle = this.state.api.isExecuting ? { backgroundColor: grey[300] } : {};
 
         return (
             <Dialog
@@ -190,7 +190,7 @@ class WorkoutDialog extends Component {
                     style={styles.routine}
                 >
                     {this.props.routines.map(r => {
-                        let color = !r.color || r.color === 0 ? red500 : r.color;
+                        let color = !r.color || r.color === 0 ? red[500] : r.color;
                         return (
                             <MenuItem 
                                 key={r.id} 

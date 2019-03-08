@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import { grey300, red500 } from 'material-ui/styles/colors';
+import { grey, red } from '@material-ui/core/colors';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
@@ -158,12 +158,12 @@ class WorkoutCard extends Component {
 
     render() {
         let color = this.props.workout.routine.color;
-        color = !color || color === 0 ? red500 : color;
+        color = !color || color === 0 ? red[500] : color;
         let fontColor = fontContrastColor(color);
 
         return (
             <div>
-                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey300 }}>
+                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
                     <CardHeader                        
                         titleStyle={{ ...styles.cardTitle, color: fontColor }}
                         style={{ ...styles.cardHeader, backgroundColor: color }}

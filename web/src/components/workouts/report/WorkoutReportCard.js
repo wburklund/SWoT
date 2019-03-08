@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ActionWatchLater, ActionSpeakerNotes, ContentCreate } from 'material-ui/svg-icons';
-import { black, red500 } from 'material-ui/styles/colors';
+import { black, red } from '@material-ui/core/colors';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -70,7 +70,7 @@ class WorkoutReportCard extends Component {
 
     render() {
         let color = this.props.workout.routine.color;
-        color = !color || color === 0 ? red500 : color;
+        color = !color || color === 0 ? red[500] : color;
         let fontColor = fontContrastColor(color);
 
         return (

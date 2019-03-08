@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { black } from 'material-ui/styles/colors';
+import { black } from '@material-ui/core/colors';
 import { AvPlayArrow, ActionSchedule, AvStop } from 'material-ui/svg-icons';
 
 const styles = {
