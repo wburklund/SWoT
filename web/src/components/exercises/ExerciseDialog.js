@@ -17,7 +17,7 @@ import { getGuid, swapArrayElements, validateUrl } from '../../util';
 
 import ExerciseMetricDialog from './ExerciseMetricDialog';
 import ExerciseMetricList from './ExerciseMetricList';
-import SaveRetryFlatButton from '../shared/SaveRetryFlatButton';
+import SaveRetryButton from '../shared/SaveRetryButton';
 
 const styles = {
     name: {
@@ -269,7 +269,7 @@ class ExerciseDialog extends Component {
                                 onClick={this.handleCancelClick} 
                                 disabled={this.state.api.isExecuting}
                             />
-                            <SaveRetryFlatButton 
+                            <SaveRetryButton 
                                 onClick={this.handleSaveClick} 
                                 api={this.state.api} 
                                 validation={this.state.validationErrors} 

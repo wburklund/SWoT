@@ -19,7 +19,7 @@ import { showSnackbar } from '../app/AppActions.js';
 
 import { getGuid } from '../../util';
 
-import SaveRetryFlatButton from '../shared/SaveRetryFlatButton';
+import SaveRetryButton from '../shared/SaveRetryButton';
 
 const styles = {
     dialogContent: {
@@ -152,7 +152,7 @@ class WorkoutDialog extends Component {
                 actions={
                     <div>
                         <FlatButton label="Cancel" onClick={this.handleCancelClick} />
-                        <SaveRetryFlatButton 
+                        <SaveRetryButton 
                             onClick={this.handleSaveClick} 
                             api={this.state.api} 
                             validation={this.state.validationErrors} 

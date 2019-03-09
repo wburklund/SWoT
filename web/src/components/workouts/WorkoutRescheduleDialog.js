@@ -8,7 +8,7 @@ import Dialog from 'material-ui/Dialog';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 
-import SaveRetryFlatButton from '../shared/SaveRetryFlatButton';
+import SaveRetryButton from '../shared/SaveRetryButton';
 
 const styles = {
     dialogContent: {
@@ -90,7 +90,7 @@ class WorkoutRescheduleDialog extends Component {
                 actions={
                     <div>
                         <FlatButton label="Cancel" onClick={this.handleCancelClick} />
-                        <SaveRetryFlatButton 
+                        <SaveRetryButton 
                             onClick={this.handleSaveClick} 
                             api={this.state.api} 
                             validation={{}} 

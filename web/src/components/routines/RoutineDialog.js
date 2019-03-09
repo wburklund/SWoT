@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RoutineExerciseList from './RoutineExerciseList';
-import SaveRetryFlatButton from '../shared/SaveRetryFlatButton';
+import SaveRetryButton from '../shared/SaveRetryButton';
 import TextField from 'material-ui/TextField';
 import { grey } from '@material-ui/core/colors';
 
@@ -214,7 +214,7 @@ class RoutineDialog extends Component {
                                 onClick={this.handleCancelClick} 
                                 disabled={this.state.api.isExecuting}
                             />
-                            <SaveRetryFlatButton 
+                            <SaveRetryButton 
                                 onClick={this.handleSaveClick} 
                                 api={this.state.api} 
                                 validation={this.state.validationErrors} 
