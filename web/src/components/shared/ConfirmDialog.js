@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Spinner from '../shared/Spinner';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import Dialog from 'material-ui/Dialog';
 import { grey } from '@material-ui/core/colors';
 
@@ -50,16 +50,18 @@ class ConfirmDialog extends Component {
                     title={this.props.title}
                     actions={  
                         <div>          
-                            <FlatButton
-                                label="Cancel"
+                            <Button
                                 disabled={this.state.api.isExecuting}
                                 onClick={this.handleCancelClick}
-                            />
-                            <FlatButton
-                                label={this.state.api.isErrored ? 'Retry' : this.props.buttonCaption }
+                            >
+                                Cancel
+                            </Button>
+                            <Button
                                 disabled={this.state.api.isExecuting}
                                 onClick={this.handleConfirmClick}
-                            />
+                            >
+                                {this.state.api.isErrored ? 'Retry' : this.props.buttonCaption}
+                            </Button>
                         </div>
                     }
                     modal={true}

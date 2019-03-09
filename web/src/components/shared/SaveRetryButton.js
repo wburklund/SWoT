@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button } from '@material-ui/core/'
+import { Button } from '@material-ui/core/';
 
 class SaveRetryButton extends Component {
     render() {

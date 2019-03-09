@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import { INTENTS } from '../../constants';
@@ -94,15 +94,15 @@ class ExerciseMetricDialog extends Component {
                 title={(this.props.intent === INTENTS.ADD ? 'Add' : 'Edit') + ' Metric'} 
                 actions={
                     <div>
-                        <FlatButton
-                            label="Cancel"
-                            onClick={this.handleCancelClick}
-                        />
-                        <FlatButton
-                            label="Save"
+                        <Button onClick={this.handleCancelClick}>
+                            Cancel
+                        </Button>
+                        <Button
                             disabled={this.state.validationErrors.name !== ''}
                             onClick={this.handleSaveClick}
-                        />
+                        >
+                            Save
+                        </Button>                            
                     </div>
                 }
                 modal={true}

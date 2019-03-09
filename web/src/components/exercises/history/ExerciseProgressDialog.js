@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import { grey } from '@material-ui/core/colors';
 
 import { fetchExercisesHistory, clearExercisesHistory } from './ExercisesHistoryActions';
@@ -127,16 +127,18 @@ class ExerciseProgressDialog extends Component {
                     autoScrollBodyContent={true}
                     actions={
                         <div>
-                            <FlatButton 
-                                label="View Full progress" 
+                            <Button 
                                 onClick={this.handleViewFullProgressClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
-                            <FlatButton 
-                                label="Close" 
+                            >
+                                View Full progress
+                            </Button>
+                            <Button 
                                 onClick={this.handleCloseClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
+                            >
+                                Close
+                            </Button>
                         </div>
                     }
                     modal={true}

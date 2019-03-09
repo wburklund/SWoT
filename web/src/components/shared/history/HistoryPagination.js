@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { black } from '@material-ui/core/colors';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
@@ -19,23 +19,26 @@ class HistoryPagination extends Component {
     render() {
         return (
             <div style={styles.buttonRow}>
-                <FlatButton
+                <Button
                     onClick={this.props.onPreviousClick}
                     disabled={this.props.refreshing || this.props.start === 1}
-                    icon={<HardwareKeyboardArrowLeft/>}
-                />
-                <FlatButton 
-                    label={this.props.refreshing ? ' ' : 
-                        this.props.total > 0 ? this.props.start + '-' + this.props.end + ' of ' + this.props.total : 'No Results'
-                    }
+                >
+                    <HardwareKeyboardArrowLeft/>
+                </Button>
+                <Button 
                     disabled={true}
                     style={styles.paginationButton}
-                />
-                <FlatButton 
+                >
+                    {this.props.refreshing ? ' ' : 
+                        this.props.total > 0 ? this.props.start + '-' + this.props.end + ' of ' + this.props.total : 'No Results'
+                    }
+                </Button>
+                <Button 
                     onClick={this.props.onNextClick} 
-                    icon={<HardwareKeyboardArrowRight/>}
                     disabled={this.props.refreshing || this.props.end === this.props.total}
-                />
+                >
+                    <HardwareKeyboardArrowRight/>
+                </Button>
             </div>
         );
     }

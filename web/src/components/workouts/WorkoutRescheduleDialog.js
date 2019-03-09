@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Spinner from '../shared/Spinner';
 import { grey } from '@material-ui/core/colors';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import Dialog from 'material-ui/Dialog';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
@@ -89,7 +89,9 @@ class WorkoutRescheduleDialog extends Component {
                 autoScrollBodyContent={true}
                 actions={
                     <div>
-                        <FlatButton label="Cancel" onClick={this.handleCancelClick} />
+                        <Button onClick={this.handleCancelClick}>
+                            Cancel
+                        </Button>
                         <SaveRetryButton 
                             onClick={this.handleSaveClick} 
                             api={this.state.api} 

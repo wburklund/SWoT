@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
@@ -258,17 +258,19 @@ class ExerciseDialog extends Component {
                     autoScrollBodyContent={true}
                     actions={
                         <div>
-                            <FlatButton 
-                                label="Add Metric" 
+                            <Button 
                                 onClick={this.handleAddMetricClick} 
                                 style={styles.addMetric} 
                                 disabled={this.state.api.isExecuting}
-                            />
-                            <FlatButton 
-                                label="Cancel" 
+                            >
+                                Add Metric
+                            </Button>
+                            <Button
                                 onClick={this.handleCancelClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
+                            >
+                                Cancel
+                            </Button>
                             <SaveRetryButton 
                                 onClick={this.handleSaveClick} 
                                 api={this.state.api} 

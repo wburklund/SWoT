@@ -8,7 +8,7 @@ import { fetchRoutines } from '../routines/RoutinesActions';
 
 import { black, red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 
 import AddFloatingAddButton from '../shared/AddFloatingActionButton';
 import WorkoutDialog from './WorkoutDialog';
@@ -101,11 +101,12 @@ class Workouts extends Component {
                                 onClick={this.handleClick}
                                 hideIfEmpty={true}
                             >
-                                <FlatButton 
-                                    label="View Full History" 
+                                <Button 
                                     fullWidth={true}
                                     onClick={() => this.navigate('/workouts/history')}
-                                />
+                                >
+                                    View Full History
+                                </Button>
                             </WorkoutsListCard>
                             <AddFloatingAddButton 
                                 startOpen={this.props.routines.length && !this.props.workouts.length && !this.props.workoutsHistory.workouts.length}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import RoutineExerciseList from './RoutineExerciseList';
 import SaveRetryButton from '../shared/SaveRetryButton';
 import TextField from 'material-ui/TextField';
@@ -203,17 +203,19 @@ class RoutineDialog extends Component {
                     autoScrollBodyContent={true}
                     actions={
                         <div>
-                            <FlatButton 
-                                label="Add Exercise" 
+                            <Button 
                                 onClick={this.handleAddExerciseClick} 
                                 style={styles.addExercise} 
                                 disabled={this.state.api.isExecuting}
-                            />
-                            <FlatButton 
-                                label="Cancel" 
+                            >
+                                Add Exercise
+                            </Button>
+                            <Button 
                                 onClick={this.handleCancelClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
+                            >
+                                Cancel
+                            </Button>
                             <SaveRetryButton 
                                 onClick={this.handleSaveClick} 
                                 api={this.state.api} 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import { black } from '@material-ui/core/colors';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import HardwareKeyboardArrowRight from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
@@ -14,8 +13,8 @@ const styles = {
         minWidth: 50,
         width: 50,
     },
-    date:{
-        color: black,
+    date: {
+        color: 'black',
         fontSize: 16,
     },
 };
@@ -41,23 +40,26 @@ class WorkoutsCalendarToolbar extends Component {
     render() {
         return (
             <div style={styles.toolbar}>
-                <FlatButton 
+                <Button 
                     style={styles.arrowButton} 
-                    icon={<HardwareKeyboardArrowLeft/>} 
                     onClick={this.handlePreviousClick}
-                />
-                <FlatButton label={'Today'} onClick={this.handleTodayClick}/>
-                <FlatButton 
+                >
+                    <HardwareKeyboardArrowLeft/>
+                </Button>
+                <Button onClick={this.handleTodayClick}>
+                    Today
+                </Button>
+                <Button 
                     style={styles.arrowButton} 
-                    icon={<HardwareKeyboardArrowRight/>} 
                     onClick={this.handleNextClick}
-                />
-                <FlatButton 
-                    disabled={true} 
-                    style={styles.date}
-                    labelStyle={styles.date}
-                    label={moment(this.props.date).format('MMMM YYYY')}
-                />
+                >
+                    <HardwareKeyboardArrowRight/>
+                </Button>
+                <Button disabled={true}>
+                    <span style={styles.date}>
+                        {moment(this.props.date).format('MMMM YYYY')}
+                    </span>
+                </Button>
             </div>
         );
     }

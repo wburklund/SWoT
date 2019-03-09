@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import Dialog from 'material-ui/Dialog';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -45,14 +45,12 @@ class RoutineExerciseDialog extends Component {
                 title={'Add Exercise'} 
                 actions={
                     <div>
-                        <FlatButton
-                            label="Cancel"
-                            onClick={this.handleCancelClick}
-                        />
-                        <FlatButton
-                            label="Save"
-                            onClick={this.handleAddClick}
-                        />
+                        <Button onClick={this.handleCancelClick}>
+                            Cancel
+                        </Button>
+                        <Button onClick={this.handleAddClick}>
+                            Save
+                        </Button>
                     </div>
                 }
                 modal={true}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/';
 import { grey } from '@material-ui/core/colors';
 
 import RoutineHistoryDialogContent from './RoutineHistoryDialogContent';
@@ -83,16 +83,18 @@ class RoutineHistoryDialog extends Component {
                     autoScrollBodyContent={true}
                     actions={
                         <div>
-                            <FlatButton 
-                                label="View Full history" 
+                            <Button 
                                 onClick={this.handleViewFullHistoryClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
-                            <FlatButton 
-                                label="Close" 
+                            >
+                                View Full history
+                            </Button>
+                            <Button 
                                 onClick={this.handleCloseClick} 
                                 disabled={this.state.api.isExecuting}
-                            />
+                            >
+                                Close
+                            </Button>
                         </div>
                     }
                     modal={true}
