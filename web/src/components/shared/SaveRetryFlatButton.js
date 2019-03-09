@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 
-import FlatButton from 'material-ui/FlatButton';
+import { Button } from '@material-ui/core/'
 
-class SaveRetryFlatButton extends Component {
+class SaveRetryButton extends Component {
     render() {
         return (
-            <FlatButton 
-                label={this.props.api.isErrored ? 'Retry' : this.props.label ? this.props.label : 'Save'}
+            <Button 
                 onClick={this.props.onClick} 
                 disabled={
                     (Object.keys(this.props.validation)
                         .find(e => this.props.validation[e] !== '') !== undefined) || (this.props.api.isExecuting)
                 }
                 style={this.props.style}
-            />
+            >
+                {this.props.api.isErrored ? 'Retry' : this.props.label ? this.props.label : 'Save'}
+            </Button>
         );
     }
 }
 
-export default SaveRetryFlatButton;
+export default SaveRetryButton;
