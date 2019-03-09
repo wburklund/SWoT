@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import {Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { List, ListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ActionAssessment from 'material-ui/svg-icons/action/assessment';
@@ -149,13 +149,12 @@ class ExerciseCard extends Component {
 
         return (
             <div style={styles.container}>
-                <Card zDepth={2} style={styles.card}>
+                <Card style={styles.card}>
                     <CardHeader                        
-                        titleStyle={styles.cardTitle}
                         style={styles.cardHeader}
                         title={
                             <span 
-                                style={styles.link}
+                                style={{...styles.cardTitle, ...styles.link}}
                                 onClick={() => window.open(this.props.exercise.url)}
                             >
                                 {this.props.exercise.name}
@@ -169,15 +168,6 @@ class ExerciseCard extends Component {
                             />
                         }
                     >
-                        <FloatingActionButton 
-                            secondary={false} 
-                            zDepth={2} 
-                            style={styles.fab}
-                            mini={true}
-                            onClick={this.handleEditClick}
-                        >
-                            <ContentCreate />
-                        </FloatingActionButton>
                     </CardHeader>
                     <IconMenu
                             style={styles.iconMenu}
@@ -191,7 +181,7 @@ class ExerciseCard extends Component {
                         <MenuItem primaryText="Progress" onClick={this.handleProgressClick} leftIcon={<ActionTrendingUp/>}/>
                         <MenuItem primaryText="History" onClick={this.handleHistoryClick} leftIcon={<ActionHistory/>}/>
                     </IconMenu>
-                    <CardText>
+                    <CardContent>
                         <List>
                             {this.props.exercise.metrics ? this.props.exercise.metrics.map(m =>                     
                                 <ListItem
@@ -202,7 +192,16 @@ class ExerciseCard extends Component {
                                 />
                             ) : ''}
                         </List>
-                    </CardText>
+                    </CardContent>
+                    <FloatingActionButton 
+                        secondary={false} 
+                        zDepth={2} 
+                        style={styles.fab}
+                        mini={true}
+                        onClick={this.handleEditClick}
+                    >
+                        <ContentCreate />
+                    </FloatingActionButton>
                 </Card>
                 <ConfirmDialog 
                     title={'Delete Exercise'}
