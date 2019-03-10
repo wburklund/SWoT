@@ -8,7 +8,7 @@ import { showSnackbar, setVariable } from '../app/AppActions';
 import ActionCheckCircle from 'material-ui/svg-icons/action/check-circle';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { CardText, CardActions } from 'material-ui/Card';
+import { CardContent, CardActions } from '@material-ui/core';
 import SecurityCard from './SecurityCard';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 
@@ -194,7 +194,7 @@ class ConfirmRegistration extends Component {
 
         return(
             <SecurityCard api={this.state.api}>
-                <CardText>
+                <CardContent>
                     <div style={styles.group}>
                         <CommunicationEmail style={styles.icon}/>
                         <TextField
@@ -219,27 +219,29 @@ class ConfirmRegistration extends Component {
                             ref={this.codeInput}
                         />
                     </div>
-                </CardText>
+                </CardContent>
                 <CardActions>
-                    <div style={styles.center}>
-                        <RaisedButton 
-                            style={styles.button} 
-                            primary={!this.state.confirmed} 
-                            label="Confirm Registration" 
-                            onClick={this.handleConfirmClick} 
-                            disabled={disabled}
-                            type='submit'
-                        />
-                    </div>
-                    <div style={styles.center}>
-                        <span style={styles.toggleText}>Ready to log in?</span>
-                        <RaisedButton 
-                            style={styles.button} 
-                            primary={this.state.confirmed} 
-                            label="Login" 
-                            onClick={() => this.handleNavigateClick('/login')} 
-                            disabled={disabled}
-                        />
+                    <div>
+                        <div style={styles.center}>
+                            <RaisedButton 
+                                style={styles.button} 
+                                primary={!this.state.confirmed} 
+                                label="Confirm Registration" 
+                                onClick={this.handleConfirmClick} 
+                                disabled={disabled}
+                                type='submit'
+                            />
+                        </div>
+                        <div style={styles.center}>
+                            <span style={styles.toggleText}>Ready to log in?</span>
+                            <RaisedButton 
+                                style={styles.button} 
+                                primary={this.state.confirmed} 
+                                label="Login" 
+                                onClick={() => this.handleNavigateClick('/login')} 
+                                disabled={disabled}
+                            />
+                        </div>
                     </div>
                 </CardActions>
             </SecurityCard>

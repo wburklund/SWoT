@@ -5,7 +5,8 @@ import CommunicationVpnKey from 'material-ui/svg-icons/communication/vpn-key';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { CardText, CardActions } from 'material-ui/Card';
+import { CardContent, CardActions } from '@material-ui/core';
+
 import SecurityCard from './SecurityCard';
 
 import { authenticate } from './SecurityActions';
@@ -159,7 +160,7 @@ class Login extends Component {
 
         return(
             <SecurityCard api={this.state.api}>
-                <CardText>
+                <CardContent>
                     <div style={styles.group}>
                         <CommunicationEmail style={styles.icon}/>
                         <TextField
@@ -185,26 +186,28 @@ class Login extends Component {
                             ref={this.passwordInput}
                         />
                     </div>
-                </CardText>
+                </CardContent>
                 <CardActions>
-                    <div style={styles.center}>
-                        <RaisedButton 
-                            style={styles.button} 
-                            primary={true}
-                            label="Login" 
-                            onClick={this.handleLoginClick} 
-                            disabled={disabled}
-                            type='submit'
-                        />
-                    </div>
-                    <div style={styles.center}>
-                        <span style={styles.toggleText}>No account?</span>
-                        <RaisedButton 
-                            style={styles.button} 
-                            label="Register" 
-                            onClick={() => this.handleNavigateClick('register')} 
-                            disabled={disabled}
-                        />
+                    <div>
+                        <div style={styles.center}>
+                            <RaisedButton 
+                                style={styles.button} 
+                                primary={true}
+                                label="Login" 
+                                onClick={this.handleLoginClick} 
+                                disabled={disabled}
+                                type='submit'
+                            />
+                        </div>
+                        <div style={styles.center}>
+                            <span style={styles.toggleText}>No account?</span>
+                            <RaisedButton 
+                                style={styles.button} 
+                                label="Register" 
+                                onClick={() => this.handleNavigateClick('register')} 
+                                disabled={disabled}
+                            />
+                        </div>
                     </div>
                 </CardActions>
             </SecurityCard>

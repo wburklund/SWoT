@@ -8,7 +8,7 @@ import CommunicationVpnKey from 'material-ui/svg-icons/communication/vpn-key';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { CardText, CardActions } from 'material-ui/Card';
+import { CardContent, CardActions } from '@material-ui/core';
 
 import { validateEmail } from '../../util';
 import SecurityCard from './SecurityCard';
@@ -176,7 +176,7 @@ class Register extends Component {
 
         return(
             <SecurityCard api={this.state.api}>
-                <CardText>
+                <CardContent>
                     <div style={styles.group}>
                         <CommunicationEmail style={styles.icon}/>
                         <TextField
@@ -215,36 +215,38 @@ class Register extends Component {
                             ref={this.password2Input}
                         />
                     </div>
-                </CardText>
+                </CardContent>
                 <CardActions>
-                    <div style={styles.center}>
-                        <RaisedButton 
-                            style={styles.button} 
-                            primary={!this.state.registered} 
-                            label="Register" 
-                            onClick={this.handleRegisterClick} 
-                            disabled={disabled}
-                            type='submit'
-                        />
-                    </div>
-                    <div style={styles.center}>
-                        <span style={styles.toggleText}>Have a confirmation code?</span>
-                        <RaisedButton 
-                            style={styles.button} 
-                            primary={this.state.registered} 
-                            label="Confirm Registration" 
-                            onClick={() => this.handleNavigateClick('confirm')} 
-                            disabled={disabled}
-                        />
-                    </div>
-                    <div style={styles.center}>
-                        <span style={styles.toggleText}>Already registered?</span>
-                        <RaisedButton 
-                            style={styles.button} 
-                            label="Login" 
-                            onClick={() => this.handleNavigateClick('login')} 
-                            disabled={disabled}
-                        />
+                    <div>
+                        <div style={styles.center}>
+                            <RaisedButton 
+                                style={styles.button} 
+                                primary={!this.state.registered} 
+                                label="Register" 
+                                onClick={this.handleRegisterClick} 
+                                disabled={disabled}
+                                type='submit'
+                            />
+                        </div>
+                        <div style={styles.center}>
+                            <span style={styles.toggleText}>Have a confirmation code?</span>
+                            <RaisedButton 
+                                style={styles.button} 
+                                primary={this.state.registered} 
+                                label="Confirm Registration" 
+                                onClick={() => this.handleNavigateClick('confirm')} 
+                                disabled={disabled}
+                            />
+                        </div>
+                        <div style={styles.center}>
+                            <span style={styles.toggleText}>Already registered?</span>
+                            <RaisedButton 
+                                style={styles.button} 
+                                label="Login" 
+                                onClick={() => this.handleNavigateClick('login')} 
+                                disabled={disabled}
+                            />
+                        </div>
                     </div>
                 </CardActions>
             </SecurityCard>
