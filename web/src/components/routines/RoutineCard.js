@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Card, CardHeader, CardContent } from '@material-ui/core';
-import { List } from 'material-ui/List';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 import Avatar from 'material-ui/Avatar';

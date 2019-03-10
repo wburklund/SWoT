@@ -5,7 +5,7 @@ import api from '../../../api';
 
 import Spinner from '../../shared/Spinner';
 
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { 
     API_ROOT,
@@ -19,7 +19,7 @@ import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import { ActionTrendingUp, ActionInfo } from 'material-ui/svg-icons';
 import ExerciseProgressOptions from './ExerciseProgressOptions';
 import Divider from 'material-ui/Divider/Divider';
-import { List, ListItem } from 'material-ui/List';
+import { ListItem } from 'material-ui/List';
 import { ContentClear } from 'material-ui/svg-icons';
 import HelpChecklist from '../../help/HelpChecklist';
 

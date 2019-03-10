@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { List, ListItem } from 'material-ui/List';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { ListItem } from 'material-ui/List';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import { ToggleCheckBoxOutlineBlank, ToggleCheckBox, ActionHelp, ActionHighlightOff } from 'material-ui/svg-icons';
 import { black, green, yellow, red, grey } from '@material-ui/core/colors';
 import Avatar from 'material-ui/Avatar';

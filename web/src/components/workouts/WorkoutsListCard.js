@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import Avatar from 'material-ui/Avatar';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import { black, grey, red } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
 
 import { WORKOUT_AVATAR_COLOR } from '../../constants';
-import { List, ListItem } from 'material-ui/List';
+import { ListItem } from 'material-ui/List';
 import Spinner from '../shared/Spinner';
 import { fontContrastColor } from '../../util';
 

@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import Avatar from 'material-ui/Avatar';
 import { ActionAssessment, ActionWatchLater, ActionSpeakerNotes } from 'material-ui/svg-icons';
 import { black } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import LeftRightListItem from '../shared/LeftRightListItem';
 import ToggledLeftRightListItem from '../shared/ToggledLeftRightListItem';
-import { List } from 'material-ui/List';
 
 import { CARD_WIDTH, EXERCISE_TYPES, EXERCISE_AVATAR_COLOR } from '../../constants';
 import { getElapsedTime } from '../../util';

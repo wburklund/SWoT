@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import TextField from 'material-ui/TextField';
-import { List } from 'material-ui/List';
 
 import { CARD_WIDTH, EXERCISE_TYPES, EXERCISE_AVATAR_COLOR } from '../../../constants';
 import { getElapsedTime, getUnixTimestamp } from '../../../util';

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {List, ListItem} from 'material-ui/List';
+import { List } from '@material-ui/core';
+
+import { ListItem } from 'material-ui/List';
 
 import { red } from '@material-ui/core/colors';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';

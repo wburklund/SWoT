@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import {List, ListItem} from 'material-ui/List';
+import { List } from '@material-ui/core';
+import { ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';

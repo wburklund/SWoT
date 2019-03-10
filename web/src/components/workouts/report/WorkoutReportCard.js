@@ -5,10 +5,9 @@ import moment from 'moment';
 import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ActionWatchLater, ActionSpeakerNotes, ContentCreate } from 'material-ui/svg-icons';
 import { black, red } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, List } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
-import List from 'material-ui/List';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
