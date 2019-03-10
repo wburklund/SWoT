@@ -37,7 +37,7 @@ class HistoryCard extends Component {
             this.props.isEmpty && this.props.hideIfEmpty ? '' :
                 <Card style={!this.props.refreshing ? styles.card : { ...styles.card, backgroundColor: grey[300] } }>
                     <CardHeader
-                        title={<span style={styles.cardTitle}>this.props.title</span>}
+                        title={<span style={styles.cardTitle}>{this.props.title}</span>}
                         style={{ ...styles.cardHeader, backgroundColor: this.props.color}}
                         avatar={<Avatar backgroundColor={this.props.color} color={black} size={36} icon={this.props.icon}></Avatar>}
                     />
