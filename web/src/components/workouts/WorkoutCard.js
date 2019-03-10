@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 import { grey, red } from '@material-ui/core/colors';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import Avatar from 'material-ui/Avatar';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import IconMenu from 'material-ui/IconMenu';
@@ -163,16 +163,20 @@ class WorkoutCard extends Component {
 
         return (
             <div>
-                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
+                <Card style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
                     <CardHeader                        
-                        titleStyle={{ ...styles.cardTitle, color: fontColor }}
                         style={{ ...styles.cardHeader, backgroundColor: color }}
-                        title={this.props.workout.routine.name}
-                        subtitle={
-                            this.props.workout.startTime === undefined ? 'Scheduled for ' + moment(this.props.workout.scheduledTime).calendar() :
-                            'Started ' + moment(this.props.workout.startTime).calendar()
+                        title={
+                            <span style={{ ...styles.cardTitle, color: fontColor }}>
+                                {this.props.workout.routine.name}
+                            </span>
                         }
-                        subtitleStyle={{ color: fontColor }}
+                        subheader={
+                            <span style={{ color: fontColor }}>
+                                {this.props.workout.startTime === undefined ? 'Scheduled for ' + moment(this.props.workout.scheduledTime).calendar() :
+                                'Started ' + moment(this.props.workout.startTime).calendar()}
+                            </span>
+                        }
                         avatar={
                             <Avatar 
                                 backgroundColor={color} 
@@ -182,15 +186,6 @@ class WorkoutCard extends Component {
                             />
                         }
                     >
-                        <FloatingActionButton 
-                            secondary={false} 
-                            zDepth={2} 
-                            style={styles.fab}
-                            mini={true}
-                            onClick={this.handleStartCompleteClick}
-                        >
-                            {this.props.workout.startTime === undefined ? <AvPlayArrow/> : <AvStop/> }
-                        </FloatingActionButton>
                     </CardHeader>
                     <IconMenu
                         style={styles.iconMenu}
@@ -212,7 +207,7 @@ class WorkoutCard extends Component {
                         }
                         <MenuItem primaryText="Delete" onClick={this.handleDeleteClick} leftIcon={<ActionDelete/>}/>
                     </IconMenu>
-                    <CardText>
+                    <CardContent>
                         <div style={styles.content}>
                             <WorkoutStepper
                                 enabled={this.props.workout.startTime !== undefined && !this.state.api.isExecuting}
@@ -233,7 +228,16 @@ class WorkoutCard extends Component {
                             />
                             {this.state.api.isExecuting ? <Spinner style={styles.spinner}/> : ''}
                         </div>
-                    </CardText>
+                    </CardContent>
+                    <FloatingActionButton 
+                        secondary={false} 
+                        zDepth={2} 
+                        style={styles.fab}
+                        mini={true}
+                        onClick={this.handleStartCompleteClick}
+                    >
+                        {this.props.workout.startTime === undefined ? <AvPlayArrow/> : <AvStop/> }
+                    </FloatingActionButton>
                 </Card>
                 <ConfirmDialog 
                     title={'Complete Workout'}

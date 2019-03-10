@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { List, ListItem } from 'material-ui/List';
-import {Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { ToggleCheckBoxOutlineBlank, ToggleCheckBox, ActionHelp, ActionHighlightOff } from 'material-ui/svg-icons';
 import { black, green, yellow, red, grey } from '@material-ui/core/colors';
 import Avatar from 'material-ui/Avatar';
@@ -79,15 +79,14 @@ class HelpChecklist extends Component {
         return (
             this.state.api.isExecuting ? <Spinner size={48}/> : 
                 this.state.api.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
-                    <Card zDepth={2} style={styles.card}>
+                    <Card style={styles.card}>
                         <CardHeader                        
-                            titleStyle={styles.cardTitle}
                             style={styles.cardHeader}
-                            title={'Configuration Checklist'}
+                            title={<span style={styles.cardTitle}>Configuration Checklist</span>}
                             avatar={<Avatar backgroundColor={yellow[500]} color={black} size={36} icon={<ActionHelp/>}></Avatar>}
                         >
                         </CardHeader>
-                        <CardText>
+                        <CardContent>
                             <List>
                                 <ListItem
                                     leftIcon={!noExercises ? <ToggleCheckBox color={green[500]}/> : <ToggleCheckBoxOutlineBlank color={black}/>}
@@ -120,7 +119,7 @@ class HelpChecklist extends Component {
                                     style={noWorkouts ? styles.disabled : undefined}
                                 />
                             </List>
-                        </CardText>
+                        </CardContent>
                     </Card>
         );
     }

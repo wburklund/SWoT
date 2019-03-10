@@ -5,7 +5,7 @@ import api from '../../../api';
 
 import Spinner from '../../shared/Spinner';
 
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { 
     API_ROOT,
@@ -210,7 +210,6 @@ class ExerciseProgress extends Component {
                     !this.state.historyExists ? <HelpChecklist/> :
                         <div>
                             <Card 
-                                zDepth={2}                 
                                 style={!this.state.refreshApi.isExecuting ? styles.card : 
                                     { 
                                         ...styles.card, 
@@ -219,12 +218,11 @@ class ExerciseProgress extends Component {
                                 }
                             >
                                 <CardHeader
-                                    title={'Progress'}
-                                    titleStyle={styles.cardTitle}
+                                    title={<span style={styles.cardTitle}>Progress</span>}
                                     style={styles.cardHeader}
                                     avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={<ActionTrendingUp/>}></Avatar>}
                                 />
-                                <CardText>
+                                <CardContent>
                                     <div style={styles.container}>
                                         <ExerciseProgressOptions
                                             filters={this.state.filters} 
@@ -261,7 +259,7 @@ class ExerciseProgress extends Component {
                                         }
                                         {this.state.refreshApi.isExecuting ? <Spinner/> : ''}
                                     </div>
-                                </CardText>
+                                </CardContent>
                             </Card>
                         </div> 
         );

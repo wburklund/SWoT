@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Avatar from 'material-ui/Avatar';
 import { ActionAssessment, ActionWatchLater, ActionSpeakerNotes } from 'material-ui/svg-icons';
 import { black } from '@material-ui/core/colors';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import LeftRightListItem from '../shared/LeftRightListItem';
 import ToggledLeftRightListItem from '../shared/ToggledLeftRightListItem';
 import { List } from 'material-ui/List';
@@ -49,16 +49,12 @@ class ExerciseReportCard extends Component {
 
         return (
             <div>
-                <Card 
-                    zDepth={2} 
-                    style={styles.card}
-                >
+                <Card style={styles.card}>
                     <CardHeader                        
-                        titleStyle={styles.cardTitle}
                         style={styles.cardHeader}
                         title={
                             <span 
-                                style={styles.link}
+                                style={{...styles.cardTitle, ...styles.link}}
                                 onClick={() => window.open(this.props.exercise.url)}
                             >
                                 {this.props.exercise.name}
@@ -73,7 +69,7 @@ class ExerciseReportCard extends Component {
                         }
                     >
                     </CardHeader>
-                    <CardText style={styles.text}>
+                    <CardContent style={styles.text}>
                         <List>
                             {!this.props.exercise.metrics ? '' :
                                 this.props.exercise.metrics.map((m, index) =>    
@@ -100,7 +96,7 @@ class ExerciseReportCard extends Component {
                                 </ToggledLeftRightListItem>
                             }
                         </List>
-                    </CardText>
+                    </CardContent>
                 </Card>
             </div>
         );

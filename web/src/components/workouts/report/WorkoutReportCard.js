@@ -5,7 +5,7 @@ import moment from 'moment';
 import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ActionWatchLater, ActionSpeakerNotes, ContentCreate } from 'material-ui/svg-icons';
 import { black, red } from '@material-ui/core/colors';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import List from 'material-ui/List';
@@ -75,15 +75,19 @@ class WorkoutReportCard extends Component {
 
         return (
             <div>
-                <Card zDepth={2} style={ styles.card }>
+                <Card style={ styles.card }>
                     <CardHeader                        
-                        titleStyle={{ ...styles.cardTitle, color: fontColor }}
                         style={{ ...styles.cardHeader, backgroundColor: color }}
-                        title={this.props.workout.routine.name}
-                        subtitle={
-                            'Completed ' + moment(this.props.workout.endTime).calendar()
+                        title={
+                            <span style={{ ...styles.cardTitle, color: fontColor }}>
+                                {this.props.workout.routine.name}
+                            </span>
                         }
-                        subtitleStyle={{ color: fontColor }}
+                        subheader={
+                            <span style={{ color: fontColor }}>
+                                {'Completed ' + moment(this.props.workout.endTime).calendar()}
+                            </span>
+                        }
                         avatar={
                             <Avatar 
                                 backgroundColor={color} 
@@ -102,7 +106,7 @@ class WorkoutReportCard extends Component {
                         <MenuItem primaryText="Edit" onClick={this.handleEditClick} leftIcon={<ContentCreate/>}/>
                         <MenuItem primaryText="Delete" onClick={this.handleDeleteClick} leftIcon={<ActionDelete/>}/>
                     </IconMenu>
-                    <CardText>
+                    <CardContent>
                         {this.props.workout.routine.exercises.map((e, index) => 
                             <ExerciseReportCard key={index} exercise={e}/>
                         )}
@@ -120,7 +124,7 @@ class WorkoutReportCard extends Component {
                                 {!this.props.workout.notes ? '' : <p>{this.props.workout.notes}</p>}
                             </ToggledLeftRightListItem>
                         </List>
-                    </CardText>
+                    </CardContent>
                 </Card>
                 <ConfirmDialog 
                     title={'Delete Workout History'}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import {Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { List } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ActionAssignment from 'material-ui/svg-icons/action/assignment';
@@ -133,10 +133,13 @@ class RoutineCard extends Component {
 
         return (
             <div style={styles.container}>
-                <Card zDepth={2} style={styles.card}>
+                <Card style={styles.card}>
                     <CardHeader
-                        title={this.props.routine.name}
-                        titleStyle={{ ...styles.cardTitle, color: fontColor }}
+                        title={
+                            <span style={{ ...styles.cardTitle, color: fontColor }}>
+                                {this.props.routine.name}
+                            </span>
+                        }
                         style={{ ...styles.cardHeader, backgroundColor: color }}
                         avatar={
                             <Avatar 
@@ -147,15 +150,6 @@ class RoutineCard extends Component {
                             </Avatar>
                         }
                     >
-                        <FloatingActionButton 
-                            secondary={false} 
-                            zDepth={2} 
-                            style={styles.fab}
-                            mini={true}
-                            onClick={this.handleEditClick}
-                        >
-                            <ContentCreate />
-                        </FloatingActionButton>
                     </CardHeader>
                     <IconMenu
                             style={styles.iconMenu}
@@ -168,13 +162,22 @@ class RoutineCard extends Component {
                         <Divider/>
                         <MenuItem primaryText="History" onClick={this.handleHistoryClick} leftIcon={<ActionHistory/>}/>
                     </IconMenu>
-                    <CardText style={styles.text}>
+                    <CardContent style={styles.text}>
                         <List>
                             {this.props.routine.exercises ? this.props.routine.exercises.map((e, index) =>                     
                                 <RoutineExerciseListItem key={index} exercise={e} />
                             ) : ''}
                         </List>
-                    </CardText>
+                    </CardContent>
+                    <FloatingActionButton 
+                            secondary={false} 
+                            zDepth={2} 
+                            style={styles.fab}
+                            mini={true}
+                            onClick={this.handleEditClick}
+                        >
+                            <ContentCreate />
+                    </FloatingActionButton>
                 </Card>
                 <ConfirmDialog 
                     title={'Delete Routine'}

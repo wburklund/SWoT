@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ActionHistory from 'material-ui/svg-icons/action/history';
 import Avatar from 'material-ui/Avatar';
 import { black, grey } from '@material-ui/core/colors';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
 import IconMenu from 'material-ui/IconMenu';
@@ -196,7 +196,6 @@ class ExerciseForm extends Component {
         return (
             <div>
                 <Card 
-                    zDepth={2} 
                     style={!this.state.api.isExecuting ? styles.card : 
                         { 
                             ...styles.card, 
@@ -205,17 +204,16 @@ class ExerciseForm extends Component {
                     }
                 >
                     <CardHeader                        
-                        titleStyle={{ ...styles.cardTitle, marginTop: started ? 0 : 6 }}
                         style={styles.cardHeader}
                         title={
                             <span 
-                                style={styles.link}
+                                style={{ ...styles.cardTitle, ...styles.link, marginTop: started ? 0 : 6 }}
                                 onClick={() => window.open(this.props.exercise.url)}
                             >
                                 {this.props.exercise.name}
                             </span>
                         }
-                        subtitle={started ? 'Elapsed time ' + getElapsedTime(this.props.exercise.startTime, this.props.exercise.endTime) : undefined}
+                        subheader={started ? 'Elapsed time ' + getElapsedTime(this.props.exercise.startTime, this.props.exercise.endTime) : undefined}
                         avatar={
                             <Avatar 
                                 style={{marginTop: started ? 4 : 0}}
@@ -226,17 +224,6 @@ class ExerciseForm extends Component {
                         }
                     >
                     </CardHeader>
-                    <FloatingActionButton 
-                        secondary={false} 
-                        zDepth={2} 
-                        style={styles.fab}
-                        mini={true}
-                        onClick={this.handleActionClick}
-                    >
-                        {!started ? <AvPlayArrow style={{position: "unset", zIndex: 0 }}/> :
-                            !this.props.exercise.endTime ? <AvStop/> : <AvFastRewind/>
-                        }
-                    </FloatingActionButton>
                     <IconMenu
                         style={{ ...styles.iconMenu, top: started ? styles.iconMenu.top - 5 : styles.iconMenu.top }}
                         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
@@ -248,7 +235,7 @@ class ExerciseForm extends Component {
                         <MenuItem primaryText="Progress" onClick={this.handleProgressClick} leftIcon={<ActionTrendingUp/>}/>
                         <MenuItem primaryText="History" onClick={this.handleHistoryClick} leftIcon={<ActionHistory/>}/>
                     </IconMenu>
-                    <CardText style={styles.text}>
+                    <CardContent style={styles.text}>
                         {this.state.exercise.metrics ? 
                             this.state.exercise.metrics.map((m, index) =>    
                                 <TextField
@@ -269,8 +256,19 @@ class ExerciseForm extends Component {
                             value={this.state.exercise.notes ? this.state.exercise.notes : ''}
                             disabled={this.state.exercise.endTime !== undefined || this.state.exercise.startTime === undefined}
                         />
-                    </CardText>
+                    </CardContent>
                     {this.state.api.isExecuting ? <Spinner/> : ''}
+                    <FloatingActionButton 
+                        secondary={false} 
+                        zDepth={2} 
+                        style={styles.fab}
+                        mini={true}
+                        onClick={this.handleActionClick}
+                    >
+                        {!started ? <AvPlayArrow style={{position: "unset", zIndex: 0 }}/> :
+                            !this.props.exercise.endTime ? <AvStop/> : <AvFastRewind/>
+                        }
+                    </FloatingActionButton>
                 </Card>
                 <ExerciseHistoryDialog
                     open={this.state.historyDialog.open}

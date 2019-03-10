@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import Avatar from 'material-ui/Avatar';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import { black, grey, red } from '@material-ui/core/colors';
@@ -51,7 +51,6 @@ class WorkoutsListCard extends Component {
         return (
             (!this.props.workouts || this.props.workouts.length === 0) && this.props.hideIfEmpty ? '' :
                 <Card 
-                    zDepth={2}                 
                     style={!this.props.refreshing ? styles.card : 
                         { 
                             ...styles.card, 
@@ -60,12 +59,11 @@ class WorkoutsListCard extends Component {
                     }
                 >
                     <CardHeader
-                        title={this.props.title}
-                        titleStyle={styles.cardTitle}
+                        title={<span style={styles.cardTitle}>{this.props.title}</span>}
                         style={styles.cardHeader}
                         avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={this.props.icon}></Avatar>}
                     />
-                    <CardText>
+                    <CardContent>
                         {this.props.options}
                         {this.props.options ? <Divider style={styles.headerDivider}/> : ''}
                         <List>
@@ -96,7 +94,7 @@ class WorkoutsListCard extends Component {
                         {this.props.children ? <Divider style={styles.footerDivider}/> : ''}
                         {this.props.children}
                         {this.props.refreshing ? <Spinner/> : ''}
-                    </CardText>
+                    </CardContent>
                 </Card> 
         );
     }

@@ -8,7 +8,7 @@ import { setTitle, showSnackbar } from '../../app/AppActions';
 
 import Spinner from '../../shared/Spinner';
 
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { WORKOUT_AVATAR_COLOR } from '../../../constants';
 import Avatar from 'material-ui/Avatar';
@@ -215,7 +215,6 @@ class WorkoutsCalendar extends Component {
                 this.state.loadApi.isErrored ? <ActionHighlightOff style={{ ...styles.icon, color: red[500] }} /> :
                     <div>
                         <Card 
-                            zDepth={2}                 
                             style={!this.state.refreshApi.isExecuting ? styles.card : 
                                 { 
                                     ...styles.card, 
@@ -224,12 +223,11 @@ class WorkoutsCalendar extends Component {
                             }
                         >
                             <CardHeader
-                                title={'Calendar'}
-                                titleStyle={styles.cardTitle}
+                                title={<span style={styles.cardTitle}>Calendar</span>}
                                 style={styles.cardHeader}
                                 avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={<ActionEvent/>}></Avatar>}
                             />
-                            <CardText>
+                            <CardContent>
                                 <div style={styles.container}>
                                     <BigCalendar
                                         selectable
@@ -252,7 +250,7 @@ class WorkoutsCalendar extends Component {
                                     />
                                     {this.state.refreshApi.isExecuting ? <Spinner style={styles.spinner}/> : ''}
                                 </div>
-                            </CardText>
+                            </CardContent>
                         </Card>
                         <WorkoutDialog
                             open={this.state.workoutDialog.open}

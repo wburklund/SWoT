@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import Avatar from 'material-ui/Avatar';
 import { black, grey } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
@@ -35,17 +35,13 @@ class HistoryCard extends Component {
     render() {
         return (
             this.props.isEmpty && this.props.hideIfEmpty ? '' :
-                <Card 
-                    zDepth={2}                 
-                    style={!this.props.refreshing ? styles.card : { ...styles.card, backgroundColor: grey[300] } }
-                >
+                <Card style={!this.props.refreshing ? styles.card : { ...styles.card, backgroundColor: grey[300] } }>
                     <CardHeader
-                        title={this.props.title}
-                        titleStyle={styles.cardTitle}
+                        title={<span style={styles.cardTitle}>this.props.title</span>}
                         style={{ ...styles.cardHeader, backgroundColor: this.props.color}}
                         avatar={<Avatar backgroundColor={this.props.color} color={black} size={36} icon={this.props.icon}></Avatar>}
                     />
-                    <CardText>
+                    <CardContent>
                         <div style={styles.content}>
                             {this.props.header}
                             {this.props.header ? <Divider style={styles.headerDivider}/> : ''}
@@ -54,7 +50,7 @@ class HistoryCard extends Component {
                             {this.props.footer ? <Divider style={styles.footerDivider}/> : ''}
                             {this.props.footer}
                         </div>
-                    </CardText>
+                    </CardContent>
                 </Card> 
         );
     }
