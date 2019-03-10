@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import TextField from 'material-ui/TextField';
 import { List } from 'material-ui/List';
 
@@ -70,16 +70,12 @@ class ExerciseEditorCard extends Component {
 
         return (
             <div>
-                <Card 
-                    zDepth={2} 
-                    style={!this.props.disabled ? styles.card : { ...styles.card, backgroundColor: grey[300] }}
-                >
+                <Card style={!this.props.disabled ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
                     <CardHeader                        
-                        titleStyle={styles.cardTitle}
                         style={styles.cardHeader}
                         title={
                             <span 
-                                style={styles.link}
+                                style={{...styles.cardTitle, ...styles.link}}
                                 onClick={() => window.open(this.props.exercise.url)}
                             >
                                 {exercise.name}
@@ -94,7 +90,7 @@ class ExerciseEditorCard extends Component {
                         }
                     >
                     </CardHeader>
-                    <CardText style={styles.text}>
+                    <CardContent style={styles.text}>
                         <List>
                             {exercise.metrics ? 
                                 exercise.metrics.map((m, index) =>    
@@ -144,7 +140,7 @@ class ExerciseEditorCard extends Component {
                                 disabled={this.props.disabled}
                             />
                         </List>
-                    </CardText>
+                    </CardContent>
                 </Card>
             </div>
         );

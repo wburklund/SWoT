@@ -5,7 +5,7 @@ import moment from 'moment';
 import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ContentSave, NavigationCancel, NavigationArrowBack } from 'material-ui/svg-icons';
 import { red, grey } from '@material-ui/core/colors';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -202,15 +202,19 @@ class WorkoutEditorCard extends Component {
 
         return (
             <div>
-                <Card zDepth={2} style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
+                <Card style={!this.state.api.isExecuting ? styles.card : { ...styles.card, backgroundColor: grey[300] }}>
                     <CardHeader                        
-                        titleStyle={{ ...styles.cardTitle, color: fontColor }}
                         style={{ ...styles.cardHeader, backgroundColor: color }}
-                        title={'Editing: ' + this.props.workout.routine.name}
-                        subtitle={
-                            'Completed ' + moment(this.props.workout.endTime).calendar()
+                        title={
+                            <span style={{...styles.cardTitle, color: fontColor}}>
+                                {'Editing: ' + this.props.workout.routine.name}
+                            </span> 
                         }
-                        subtitleStyle={{ color: fontColor }}
+                        subheader={
+                            <span style={{ color: fontColor }}>
+                                {'Completed ' + moment(this.props.workout.endTime).calendar()}
+                            </span>   
+                        }
                         avatar={
                             <Avatar 
                                 backgroundColor={color} 
@@ -219,18 +223,7 @@ class WorkoutEditorCard extends Component {
                                 icon={<ActionAssignmentTurnedIn/>} 
                             />
                         }
-                    >
-                        <FloatingActionButton 
-                            secondary={false} 
-                            zDepth={2} 
-                            style={styles.fab}
-                            mini={true}
-                            onClick={this.handleSaveClick}
-                            disabled={!this.areTimesValid()}
-                        >
-                            <ContentSave />
-                        </FloatingActionButton>
-                    </CardHeader>
+                    />
                     <IconMenu
                         style={styles.iconMenu}
                         iconButtonElement={<IconButton><MoreVertIcon color={fontColor}/></IconButton>}
@@ -241,7 +234,7 @@ class WorkoutEditorCard extends Component {
                             <MenuItem primaryText="Back to Report" onClick={this.handleCancelEditClick} leftIcon={<NavigationArrowBack/>}/>}
                         <MenuItem primaryText="Delete" onClick={this.handleDeleteClick} leftIcon={<ActionDelete/>}/>
                     </IconMenu>
-                    <CardText>
+                    <CardContent>
                         {this.state.workout.routine.exercises.map((e, index) => 
                             <ExerciseEditorCard 
                                 key={index} 
@@ -286,7 +279,17 @@ class WorkoutEditorCard extends Component {
                             disabled={refreshing}
                         />
                         {this.state.api.isExecuting ? <Spinner style={styles.spinner}/> : ''}
-                    </CardText>
+                    </CardContent>
+                    <FloatingActionButton 
+                        secondary={false} 
+                        zDepth={2} 
+                        style={styles.fab}
+                        mini={true}
+                        onClick={this.handleSaveClick}
+                        disabled={!this.areTimesValid()}
+                    >
+                        <ContentSave />
+                    </FloatingActionButton>
                 </Card>
                 <ConfirmDialog 
                     title={'Delete Workout History'}
