@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 
-import { Card, CardMedia } from 'material-ui/Card';
+import { Card, CardMedia } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import { grey, green } from '@material-ui/core/colors';
 import Spinner from '../shared/Spinner';
@@ -27,6 +28,7 @@ const styles = {
         left: '131px',
     },
     iconText: {
+        fontFamily: 'Roboto, sans-serif',
         position: 'absolute',
         left: 0,
         color: 'white',
@@ -62,18 +64,22 @@ const styles = {
 
 class SecurityCard extends Component {
     render() {
+        let classes = this.props.classes;
         return(
             <form onSubmit={(event) => event.preventDefault()}>
                 <Card 
-                    zDepth={4} 
                     style={this.props.api.isExecuting || this.props.api.isSuccess ? { ...styles.card, backgroundColor: grey[300] } : styles.card }
                 >
-                    <CardMedia style={styles.media}>
+                    <div className={classes.media}>
+                        <CardMedia
+                            classes={{ media: classes.iconForeground }}
+                            component={'img'}
+                            src="/img/weightlifting.png"
+                        />
                         <div style={styles.iconGroup}>
-                            <img style={styles.iconForeground} src="/img/weightlifting.png" alt="" />
                             <span style={styles.iconText}><strong>S</strong>imple <strong>Wo</strong>rkout <strong>T</strong>racker</span>
                         </div>
-                    </CardMedia>
+                    </div>
                     <div style={styles.container}>
                         {this.props.children}
                         {!this.props.api.isSuccess ? '' :
@@ -89,4 +95,4 @@ class SecurityCard extends Component {
     }
 }
 
-export default SecurityCard;
+export default withStyles(styles)(SecurityCard);
