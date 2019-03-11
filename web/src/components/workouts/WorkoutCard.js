@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 import { grey, red } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
-import Avatar from 'material-ui/Avatar';
+import { Avatar, Card, CardHeader, CardContent } from '@material-ui/core';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -23,6 +22,10 @@ import Spinner from '../shared/Spinner';
 import WorkoutRescheduleDialog from './WorkoutRescheduleDialog';
 
 const styles = {
+    avatar: {
+        width: 40,
+        height: 40,
+    },
     cardHeader: {
         marginBottom: 0,
     },
@@ -178,12 +181,9 @@ class WorkoutCard extends Component {
                             </span>
                         }
                         avatar={
-                            <Avatar 
-                                backgroundColor={color} 
-                                size={40} 
-                                color={fontColor}
-                                icon={<ActionAssignmentTurnedIn/>} 
-                            />
+                            <Avatar style={{ ...styles.avatar, backgroundColor: color }}>
+                                <ActionAssignmentTurnedIn color={fontColor}/>
+                            </Avatar>
                         }
                     >
                     </CardHeader>

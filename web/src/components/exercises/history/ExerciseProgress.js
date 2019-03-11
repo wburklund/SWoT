@@ -5,7 +5,7 @@ import api from '../../../api';
 
 import Spinner from '../../shared/Spinner';
 
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { 
     API_ROOT,
@@ -14,7 +14,6 @@ import {
     CHART_SERIES_OPTIONS, 
     CHART_SERIES_COLORS, 
 } from '../../../constants';
-import Avatar from 'material-ui/Avatar';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import { ActionTrendingUp, ActionInfo } from 'material-ui/svg-icons';
 import ExerciseProgressOptions from './ExerciseProgressOptions';
@@ -53,6 +52,11 @@ const initialState = {
 };
 
 const styles = {
+    avatar: {
+        backgroundColor: WORKOUT_AVATAR_COLOR,
+        width: 36,
+        height: 36,
+    },
     cardHeader: {
         backgroundColor: WORKOUT_AVATAR_COLOR,
         marginBottom: 0,
@@ -220,7 +224,11 @@ class ExerciseProgress extends Component {
                                 <CardHeader
                                     title={<span style={styles.cardTitle}>Progress</span>}
                                     style={styles.cardHeader}
-                                    avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={<ActionTrendingUp/>}></Avatar>}
+                                    avatar={
+                                        <Avatar style={styles.avatar}>
+                                            <ActionTrendingUp color={black}/>
+                                        </Avatar>
+                                    }
                                 />
                                 <CardContent>
                                     <div style={styles.container}>

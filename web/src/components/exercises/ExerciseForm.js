@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 import ActionHistory from 'material-ui/svg-icons/action/history';
-import Avatar from 'material-ui/Avatar';
 import { black, grey } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent } from '@material-ui/core';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
 import IconMenu from 'material-ui/IconMenu';
@@ -24,6 +23,11 @@ import Divider from 'material-ui/Divider/Divider';
 import ConfirmDialog from '../shared/ConfirmDialog';
 
 const styles = {
+    avatar: {
+        backgroundColor: EXERCISE_AVATAR_COLOR,
+        width: 32,
+        height: 32,
+    },
     cardHeader: {
         backgroundColor: EXERCISE_AVATAR_COLOR,
         marginBottom: 0,
@@ -216,9 +220,7 @@ class ExerciseForm extends Component {
                         subheader={started ? 'Elapsed time ' + getElapsedTime(this.props.exercise.startTime, this.props.exercise.endTime) : undefined}
                         avatar={
                             <Avatar 
-                                style={{marginTop: started ? 4 : 0}}
-                                backgroundColor={EXERCISE_AVATAR_COLOR} 
-                                size={32} 
+                                style={{ ...styles.avatar, marginTop: started ? 4 : 0}}
                                 src={process.env.PUBLIC_URL + '/img/' + exerciseImage.toLowerCase() + '.png'} 
                             />
                         }

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import { ListItem } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import ActionAssessment from 'material-ui/svg-icons/action/assessment';
-import Avatar from 'material-ui/Avatar';
 
 import ExerciseDialog from './ExerciseDialog';
 import ConfirmDialog from '../shared/ConfirmDialog';
@@ -24,6 +23,11 @@ import Divider from 'material-ui/Divider/Divider';
 import { ContentContentCopy, ActionDelete, ActionHistory, ActionTrendingUp } from 'material-ui/svg-icons';
 
 const styles = {
+    avatar: {
+        backgroundColor: EXERCISE_AVATAR_COLOR,
+        width: 32,
+        height: 32,
+    },
     deleteDialog: {
         zIndex: 2000,
     },
@@ -162,9 +166,8 @@ class ExerciseCard extends Component {
                         }
                         avatar={
                             <Avatar 
-                                backgroundColor={EXERCISE_AVATAR_COLOR} 
-                                size={32} 
                                 src={process.env.PUBLIC_URL + '/img/' + exerciseImage.toLowerCase() + '.png'} 
+                                style={styles.avatar}
                             />
                         }
                     >

@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { ListItem } from 'material-ui/List';
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import { ToggleCheckBoxOutlineBlank, ToggleCheckBox, ActionHelp, ActionHighlightOff } from 'material-ui/svg-icons';
 import { black, green, yellow, red, grey } from '@material-ui/core/colors';
-import Avatar from 'material-ui/Avatar';
 import Spinner from '../shared/Spinner';
 
 import { fetchExercises } from '../exercises/ExercisesActions';
@@ -17,6 +16,11 @@ import { API_ROOT } from '../../constants';
 import api from '../../api';
 
 const styles = {
+    avatar: {
+        backgroundColor: yellow[500],
+        width: 36,
+        height: 36,
+    },
     card: {
         width: '390px',
         margin: 'auto',
@@ -83,7 +87,11 @@ class HelpChecklist extends Component {
                         <CardHeader                        
                             style={styles.cardHeader}
                             title={<span style={styles.cardTitle}>Configuration Checklist</span>}
-                            avatar={<Avatar backgroundColor={yellow[500]} color={black} size={36} icon={<ActionHelp/>}></Avatar>}
+                            avatar={
+                                <Avatar style={styles.avatar}>
+                                    <ActionHelp color={black}/>
+                                </Avatar>
+                            }
                         >
                         </CardHeader>
                         <CardContent>

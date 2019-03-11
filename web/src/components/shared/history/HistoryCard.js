@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
-import { Card, CardHeader, CardContent } from '@material-ui/core';
-import Avatar from 'material-ui/Avatar';
+import { Avatar, Card, CardHeader, CardContent } from '@material-ui/core';
 import { black, grey } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
 
 import Spinner from '../Spinner';
 
 const styles = {
+    avatar: {
+        color: black,
+        width: 36,
+        height: 36,
+    },
     cardHeader: {
         marginBottom: 0,
     },
@@ -39,7 +43,11 @@ class HistoryCard extends Component {
                     <CardHeader
                         title={<span style={styles.cardTitle}>{this.props.title}</span>}
                         style={{ ...styles.cardHeader, backgroundColor: this.props.color}}
-                        avatar={<Avatar backgroundColor={this.props.color} color={black} size={36} icon={this.props.icon}></Avatar>}
+                        avatar={
+                            <Avatar style={{ ...styles.avatar, backgroundColor: this.props.color }}>
+                                {this.props.icon}
+                            </Avatar>
+                        }
                     />
                     <CardContent>
                         <div style={styles.content}>

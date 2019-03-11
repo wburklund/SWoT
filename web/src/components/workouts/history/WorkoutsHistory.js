@@ -17,13 +17,12 @@ import { black, red } from '@material-ui/core/colors';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import ActionInfo from 'material-ui/svg-icons/action/info';
-import { List } from '@material-ui/core';
+import { Avatar, List } from '@material-ui/core';
 import { ListItem } from 'material-ui/List';
 import MenuItem from 'material-ui/MenuItem';
 import NavigationCancel from 'material-ui/svg-icons/navigation/cancel';
 import SelectField from 'material-ui/SelectField';
 import HelpChecklist from '../../help/HelpChecklist';
-import Avatar from 'material-ui/Avatar';
 
 const initialState = {
     historyExists: false,
@@ -196,11 +195,9 @@ class WorkoutsHistory extends Component {
                                                 primaryText={w.routine.name}
                                                 secondaryText={'Completed ' + moment(w.endTime).calendar()}
                                                 leftAvatar={
-                                                    <Avatar 
-                                                        style={{backgroundColor: color}} 
-                                                        color={fontContrastColor(color)}
-                                                        icon={<ActionAssignmentTurnedIn/>}
-                                                    />
+                                                    <Avatar style={{ backgroundColor: color }}>
+                                                        <ActionAssignmentTurnedIn color={fontContrastColor(color)}/>
+                                                    </Avatar>
                                                 }
                                                 rightIcon={<ActionInfo color={black}/>}
                                                 onClick={() => this.handleItemClick(w.id)}

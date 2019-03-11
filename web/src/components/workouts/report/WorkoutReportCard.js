@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
-import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ActionWatchLater, ActionSpeakerNotes, ContentCreate } from 'material-ui/svg-icons';
 import { black, red } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -22,6 +21,10 @@ import LeftRightListItem from '../../shared/LeftRightListItem';
 import ToggledLeftRightListItem from '../../shared/ToggledLeftRightListItem';
 
 const styles = {
+    avatar: {
+        width: 40,
+        height: 40,
+    },
     cardHeader: {
         backgroundColor: WORKOUT_AVATAR_COLOR,
         marginBottom: 0,
@@ -88,12 +91,9 @@ class WorkoutReportCard extends Component {
                             </span>
                         }
                         avatar={
-                            <Avatar 
-                                backgroundColor={color} 
-                                size={40} 
-                                color={fontColor}
-                                icon={<ActionAssignmentTurnedIn/>} 
-                            />
+                            <Avatar style={{ ...styles.avatar, backgroundColor: color }}>
+                                <ActionAssignmentTurnedIn color={fontColor}/>
+                            </Avatar>
                         }
                     />
                     <IconMenu

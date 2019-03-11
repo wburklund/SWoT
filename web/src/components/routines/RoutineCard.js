@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import Avatar from 'material-ui/Avatar';
 
 import { CARD_WIDTH } from '../../constants';
 import ContentCreate from 'material-ui/svg-icons/content/create';
@@ -26,6 +25,10 @@ import { fontContrastColor } from '../../util';
 import { INTENTS } from '../../constants';
 
 const styles = {
+    avatar: {
+        width: 36,
+        height: 36,
+    },
     iconMenu: {
         position: 'absolute',
         right: 0,
@@ -141,11 +144,8 @@ class RoutineCard extends Component {
                         }
                         style={{ ...styles.cardHeader, backgroundColor: color }}
                         avatar={
-                            <Avatar 
-                                backgroundColor={color} 
-                                color={fontContrastColor(color)} 
-                                size={36} 
-                                icon={<ActionAssignment/>}>
+                            <Avatar style={{ ...styles.avatar, backgroundColor: color }}>
+                                <ActionAssignment color={fontContrastColor(color)}/>
                             </Avatar>
                         }
                     >

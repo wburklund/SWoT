@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import TextField from 'material-ui/TextField';
 
 import { CARD_WIDTH, EXERCISE_TYPES, EXERCISE_AVATAR_COLOR } from '../../../constants';
@@ -9,6 +8,11 @@ import { getElapsedTime, getUnixTimestamp } from '../../../util';
 import { grey } from '@material-ui/core/colors';
 
 const styles = {
+    avatar: {
+        backgroundColor: EXERCISE_AVATAR_COLOR,
+        width: 32,
+        height: 32,
+    },
     cardHeader: {
         backgroundColor: EXERCISE_AVATAR_COLOR,
         marginBottom: 0,
@@ -81,10 +85,9 @@ class ExerciseEditorCard extends Component {
                             </span>
                         }
                         avatar={
-                            <Avatar 
-                                backgroundColor={EXERCISE_AVATAR_COLOR} 
-                                size={32} 
+                            <Avatar
                                 src={process.env.PUBLIC_URL + '/img/' + exerciseImage.toLowerCase() + '.png'} 
+                                style={styles.avatar}
                             />
                         }
                     >

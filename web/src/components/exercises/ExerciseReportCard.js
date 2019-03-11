@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import Avatar from 'material-ui/Avatar';
 import { ActionAssessment, ActionWatchLater, ActionSpeakerNotes } from 'material-ui/svg-icons';
 import { black } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import LeftRightListItem from '../shared/LeftRightListItem';
 import ToggledLeftRightListItem from '../shared/ToggledLeftRightListItem';
 
@@ -11,6 +10,11 @@ import { CARD_WIDTH, EXERCISE_TYPES, EXERCISE_AVATAR_COLOR } from '../../constan
 import { getElapsedTime } from '../../util';
 
 const styles = {
+    avatar: {
+        backgroundColor: EXERCISE_AVATAR_COLOR,
+        width: 32,
+        height: 32,
+    },
     cardHeader: {
         backgroundColor: EXERCISE_AVATAR_COLOR,
         marginBottom: 0,
@@ -61,9 +65,8 @@ class ExerciseReportCard extends Component {
                         }
                         avatar={
                             <Avatar 
-                                backgroundColor={EXERCISE_AVATAR_COLOR} 
-                                size={32} 
                                 src={process.env.PUBLIC_URL + '/img/' + exerciseImage.toLowerCase() + '.png'} 
+                                style={styles.avatar}
                             />
                         }
                     >

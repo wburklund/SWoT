@@ -8,10 +8,9 @@ import { setTitle, showSnackbar } from '../../app/AppActions';
 
 import Spinner from '../../shared/Spinner';
 
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { WORKOUT_AVATAR_COLOR } from '../../../constants';
-import Avatar from 'material-ui/Avatar';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import BigCalendar from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -44,6 +43,11 @@ const initialState = {
 };
 
 const styles = {
+    avatar: {
+        backgroundColor: WORKOUT_AVATAR_COLOR,
+        width: 36,
+        height: 36,
+    },
     cardHeader: {
         backgroundColor: WORKOUT_AVATAR_COLOR,
         marginBottom: 0,
@@ -225,7 +229,11 @@ class WorkoutsCalendar extends Component {
                             <CardHeader
                                 title={<span style={styles.cardTitle}>Calendar</span>}
                                 style={styles.cardHeader}
-                                avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={<ActionEvent/>}></Avatar>}
+                                avatar={
+                                    <Avatar style={styles.avatar}>
+                                        <ActionEvent color={black}/>
+                                    </Avatar>
+                                }
                             />
                             <CardContent>
                                 <div style={styles.container}>

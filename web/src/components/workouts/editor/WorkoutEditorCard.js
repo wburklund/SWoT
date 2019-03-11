@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
-import Avatar from 'material-ui/Avatar';
 import { ActionAssignmentTurnedIn, ActionDelete, ContentSave, NavigationCancel, NavigationArrowBack } from 'material-ui/svg-icons';
 import { red, grey } from '@material-ui/core/colors';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent } from '@material-ui/core';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -23,6 +22,10 @@ import TextField from 'material-ui/TextField';
 import Spinner from '../../shared/Spinner';
 
 const styles = {
+    avatar: {
+        width: 40,
+        height: 40,
+    },
     cardHeader: {
         backgroundColor: WORKOUT_AVATAR_COLOR,
         marginBottom: 0,
@@ -216,12 +219,9 @@ class WorkoutEditorCard extends Component {
                             </span>   
                         }
                         avatar={
-                            <Avatar 
-                                backgroundColor={color} 
-                                size={40} 
-                                color={fontColor}
-                                icon={<ActionAssignmentTurnedIn/>} 
-                            />
+                            <Avatar style={{ ...styles.avatar, backgroundColor: color }}>
+                                <ActionAssignmentTurnedIn color={fontColor}/>
+                            </Avatar>
                         }
                     />
                     <IconMenu

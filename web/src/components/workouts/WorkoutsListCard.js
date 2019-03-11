@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
-import { Card, CardHeader, CardContent, List } from '@material-ui/core';
-import Avatar from 'material-ui/Avatar';
+import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
-import { black, grey, red } from '@material-ui/core/colors';
+import { grey, red } from '@material-ui/core/colors';
 import Divider from 'material-ui/Divider';
 
 import { WORKOUT_AVATAR_COLOR } from '../../constants';
@@ -13,6 +12,11 @@ import Spinner from '../shared/Spinner';
 import { fontContrastColor } from '../../util';
 
 const styles = {
+    avatar: {
+        backgroundColor: WORKOUT_AVATAR_COLOR,
+        width: 36,
+        height: 36,
+    },
     cardHeader: {
         backgroundColor: WORKOUT_AVATAR_COLOR,
         marginBottom: 0,
@@ -61,7 +65,11 @@ class WorkoutsListCard extends Component {
                     <CardHeader
                         title={<span style={styles.cardTitle}>{this.props.title}</span>}
                         style={styles.cardHeader}
-                        avatar={<Avatar backgroundColor={WORKOUT_AVATAR_COLOR} color={black} size={36} icon={this.props.icon}></Avatar>}
+                        avatar={
+                            <Avatar style={{ ...styles.avatar, backgroundColor: WORKOUT_AVATAR_COLOR }}>
+                                {this.props.icon}
+                            </Avatar>
+                        }
                     />
                     <CardContent>
                         {this.props.options}
@@ -77,11 +85,9 @@ class WorkoutsListCard extends Component {
                                             primaryText={w.routine.name}
                                             secondaryText={this.props.timePrefix + ' ' + moment(w[this.props.timeField]).calendar()}
                                             leftAvatar={
-                                                <Avatar 
-                                                    style={{backgroundColor: color}} 
-                                                    color={fontContrastColor(color)}
-                                                    icon={<ActionAssignmentTurnedIn color={color}/>
-                                                }/>
+                                                <Avatar style={{ backgroundColor: color }}>
+                                                    <ActionAssignmentTurnedIn color={fontContrastColor(color)}/>
+                                                </Avatar>
                                             }
                                             rightIcon={this.props.itemRightIcon}
                                             onClick={() => this.props.onClick(w.id)}
