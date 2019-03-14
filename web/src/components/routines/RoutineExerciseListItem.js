@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 
-import { ListItem } from 'material-ui/List';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
 import { EXERCISE_TYPES } from '../../constants';
+
+const styles = {
+    leftIcon: {
+        width: '32px',
+        height: '32px',
+    },
+};
 
 class RoutineExerciseListItem extends Component {
     render() {
@@ -12,27 +19,18 @@ class RoutineExerciseListItem extends Component {
         }
 
         return(
-            <ListItem
-                key={this.props.exercise.name}
-                leftIcon={
+            <ListItem key={this.props.exercise.name}>
+                <ListItemIcon>
                     <img 
                         alt={this.props.exercise.type} 
                         style={styles.leftIcon} 
                         src={process.env.PUBLIC_URL + '/img/' + exerciseImage.toLowerCase() + '.png'}
                     />
-                }
-                primaryText={this.props.exercise.name}
-            />
+                </ListItemIcon>
+                <ListItemText primary={this.props.exercise.name}/>
+            </ListItem>
         );
     }
 }
 
 export default RoutineExerciseListItem;
-
-const styles = {
-    leftIcon: {
-        width: '32px',
-        height: '32px',
-        marginTop: 7,
-    },
-};

@@ -5,7 +5,7 @@ import api from '../../../api';
 
 import Spinner from '../../shared/Spinner';
 
-import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
+import { Avatar, Card, CardHeader, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { black, red, grey } from '@material-ui/core/colors';
 import { 
     API_ROOT,
@@ -18,7 +18,6 @@ import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import { ActionTrendingUp, ActionInfo } from 'material-ui/svg-icons';
 import ExerciseProgressOptions from './ExerciseProgressOptions';
 import Divider from 'material-ui/Divider/Divider';
-import { ListItem } from 'material-ui/List';
 import { ContentClear } from 'material-ui/svg-icons';
 import HelpChecklist from '../../help/HelpChecklist';
 
@@ -239,17 +238,17 @@ class ExerciseProgress extends Component {
                                             disabled={this.state.loadApi.isExecuting || this.state.refreshApi.isExecuting}
                                         />
                                         <Divider style={styles.headerDivider}/>
-                                        {!this.state.filters.exerciseId ? 
-                                            <List><ListItem 
-                                                primaryText={'Select an Exercise to view progress'}
-                                                leftIcon={<ActionInfo color={black}/>}
-                                            /></List> :
+                                        {!this.state.filters.exerciseId ?
+                                            <List><ListItem>
+                                                <ListItemIcon><ActionInfo color={black}/></ListItemIcon>
+                                                <ListItemText primary={'Select an Exercise to view progress'}/>
+                                            </ListItem></List> :
                                             this.state.refreshApi.isExecuting ? '' : 
-                                                exercises.length === 0 ? 
-                                                    <List><ListItem 
-                                                        primaryText={'No records match the current filter criteria'}
-                                                        leftIcon={<ContentClear color={black}/>}
-                                                    /></List> :
+                                                exercises.length === 0 ?
+                                                    <List><ListItem>
+                                                        <ListItemIcon><ContentClear color={black}/></ListItemIcon>
+                                                        <ListItemText primary={'No records match the current filter criteria'}/>
+                                                    </ListItem></List>:
                                                     <div style={{marginTop: 15, height: this.state.window.height - 290}}>
                                                         <Line 
                                                             data={chartData}

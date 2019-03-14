@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { List } from '@material-ui/core';
-import { ListItem } from 'material-ui/List';
+import { List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText } from '@material-ui/core';
 import Subheader from 'material-ui/Subheader';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -16,7 +15,6 @@ const styles = {
     leftIcon: {
         width: '32px',
         height: '32px',
-        marginTop: 7,
     },
 };
 
@@ -32,15 +30,15 @@ class RoutineExerciseList extends Component {
             <List>
                 <Subheader>Exercises</Subheader>
                 {this.props.exercises ? this.props.exercises.map((e, index) =>                     
-                        <ListItem
-                            key={index}
-                            leftIcon={                        
-                            <img alt={e.type} 
-                                style={styles.leftIcon} 
-                                src={process.env.PUBLIC_URL + '/img/' + e.type.toLowerCase() + '.png'}
-                            />
-                            }
-                            rightIconButton={
+                        <ListItem key={index}>
+                            <ListItemIcon>
+                                <img alt={e.type} 
+                                    style={styles.leftIcon} 
+                                    src={process.env.PUBLIC_URL + '/img/' + e.type.toLowerCase() + '.png'}
+                                />
+                            </ListItemIcon>
+                            <ListItemText primary={e.name}/>
+                            <ListItemSecondaryAction>
                                 <IconMenu iconButtonElement={
                                     <IconButton touch={true} tooltipPosition="bottom-left">
                                         <MoreVertIcon color={grey[400]} />
@@ -51,10 +49,10 @@ class RoutineExerciseList extends Component {
                                     <Divider />
                                     <MenuItem onClick={() => this.props.onDeleteClick(index)}>Delete</MenuItem>
                                 </IconMenu>
-                            }
-                            primaryText={e.name}
-                        />
+                            </ListItemSecondaryAction>
+                        </ListItem>
                     ) : ''}
+
             </List>
         );
     }

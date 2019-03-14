@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ListItem } from 'material-ui/List';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { black } from '@material-ui/core/colors';
 
 import ActionRestore from 'material-ui/svg-icons/action/restore';
@@ -105,10 +105,10 @@ class History extends Component {
                 hideIfEmpty={false}
                 refreshing={this.props.refreshing}
                 emptyContent={
-                    <ListItem 
-                        primaryText={'No records match the current filter criteria'}
-                        leftIcon={<ContentClear color={black}/>}
-                    />
+                    <ListItem>
+                        <ListItemIcon><ContentClear color={black}/></ListItemIcon>
+                        <ListItemText primary={'No records match the current filter criteria'}/>
+                    </ListItem>
                 }
                 footer={
                     <HistoryPagination

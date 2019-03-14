@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Avatar, Card, CardHeader, CardContent, List } from '@material-ui/core';
-import { ListItem } from 'material-ui/List';
+import {
+    Avatar,
+    Card,
+    CardHeader,
+    CardContent,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText
+} from '@material-ui/core';
+
 import IconButton from 'material-ui/IconButton';
 import ActionAssessment from 'material-ui/svg-icons/action/assessment';
 
@@ -187,12 +196,13 @@ class ExerciseCard extends Component {
                     <CardContent>
                         <List>
                             {this.props.exercise.metrics ? this.props.exercise.metrics.map(m =>                     
-                                <ListItem
-                                    key={m.name}
-                                    leftIcon={<ActionAssessment color={'#000000'}/>}
-                                    primaryText={m.name}
-                                    secondaryText={m.uom ? m.uom : ''}
-                                />
+                                <ListItem key={m.name}>
+                                    <ListItemIcon><ActionAssessment color={'#000000'}/></ListItemIcon>
+                                    <ListItemText
+                                        primary={m.name}
+                                        secondary={m.uom || ''}
+                                    />
+                                </ListItem>
                             ) : ''}
                         </List>
                     </CardContent>

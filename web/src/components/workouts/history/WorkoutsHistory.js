@@ -17,8 +17,7 @@ import { black, red } from '@material-ui/core/colors';
 import ActionAssignmentTurnedIn from 'material-ui/svg-icons/action/assignment-turned-in';
 import ActionHighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import ActionInfo from 'material-ui/svg-icons/action/info';
-import { Avatar, List } from '@material-ui/core';
-import { ListItem } from 'material-ui/List';
+import { Avatar, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText } from '@material-ui/core';
 import MenuItem from 'material-ui/MenuItem';
 import NavigationCancel from 'material-ui/svg-icons/navigation/cancel';
 import SelectField from 'material-ui/SelectField';
@@ -192,17 +191,23 @@ class WorkoutsHistory extends Component {
                                         return (
                                             <ListItem
                                                 key={index}
-                                                primaryText={w.routine.name}
-                                                secondaryText={'Completed ' + moment(w.endTime).calendar()}
-                                                leftAvatar={
+                                                button={true}
+                                                onClick={() => this.handleItemClick(w.id)}
+                                                disabled={this.props.refreshing}
+                                            >
+                                                <ListItemAvatar>
                                                     <Avatar style={{ backgroundColor: color }}>
                                                         <ActionAssignmentTurnedIn color={fontContrastColor(color)}/>
                                                     </Avatar>
-                                                }
-                                                rightIcon={<ActionInfo color={black}/>}
-                                                onClick={() => this.handleItemClick(w.id)}
-                                                disabled={this.props.refreshing}
-                                            />
+                                                </ListItemAvatar>
+                                                <ListItemText
+                                                    primary={w.routine.name}
+                                                    secondary={'Completed ' + moment(w.endTime).calendar()}    
+                                                />
+                                                <ListItemIcon>
+                                                    <ActionInfo color={black}/>
+                                                </ListItemIcon>
+                                            </ListItem>
                                         );
                                     })}
                                 </List>

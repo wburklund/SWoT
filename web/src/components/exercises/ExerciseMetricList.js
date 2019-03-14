@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { List } from '@material-ui/core';
-import { ListItem } from 'material-ui/List';
+import { List, ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
 import Subheader from 'material-ui/Subheader';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -21,11 +20,11 @@ class ExerciseMetricList extends Component {
             <List>
                 <Subheader>Metrics</Subheader>
                 {this.props.metrics ? this.props.metrics.map((m, index) =>                     
-                        <ListItem
-                            key={m.name}
-                            leftIcon={<ActionAssessment color={black} />}
-                            rightIconButton={
-                                <IconMenu iconButtonElement={
+                    <ListItem key={m.name}>
+                        <ListItemIcon><ActionAssessment color={black}/></ListItemIcon>
+                        <ListItemText primary={m.name} secondary={m.uom || ''}/>
+                        <ListItemSecondaryAction>
+                            <IconMenu iconButtonElement={
                                     <IconButton touch={true} tooltipPosition="bottom-left">
                                         <MoreVertIcon color={grey[400]} />
                                     </IconButton>
@@ -35,12 +34,10 @@ class ExerciseMetricList extends Component {
                                     <Divider />
                                     <MenuItem leftIcon={<ContentCreate/>} onClick={() => this.props.onEditClick(m)}>Edit</MenuItem>
                                     <MenuItem leftIcon={<ActionDelete/>} onClick={() => this.props.onDeleteClick(m)}>Delete</MenuItem>
-                                </IconMenu>
-                            }
-                            primaryText={m.name}
-                            secondaryText={m.uom ? m.uom : ''}
-                        />
-                    ) : ''}
+                            </IconMenu>
+                        </ListItemSecondaryAction>
+                    </ListItem>
+                ) : ''}
             </List>
         );
     }
